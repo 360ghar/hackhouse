@@ -50,7 +50,7 @@ const AISummarySection: React.FC = () => (
   </section>
 );
 
-const HeroSection: React.FC = () => {
+const HeroSection: React.FC<{ onApplyClick?: () => void }> = ({ onApplyClick }) => {
     const [showLine2, setShowLine2] = useState(false);
     const [showLine3, setShowLine3] = useState(false);
     const btnRef = useRef<HTMLButtonElement>(null);
@@ -98,7 +98,7 @@ const HeroSection: React.FC = () => {
             Welcome to HackHouse. A hacker house for founders in the heart of Gurgaon.
           </p>
           <div className="mt-12 animate-fade-in" style={{ animationDelay: '4s' }}>
-              <button ref={btnRef} className="interactive magnetic relative group px-8 py-4 text-lg font-bold text-white uppercase overflow-hidden transition-all duration-300">
+              <button ref={btnRef} onClick={onApplyClick} className="interactive magnetic relative group px-8 py-4 text-lg font-bold text-white uppercase overflow-hidden transition-all duration-300">
                   <span className="absolute inset-0 bg-gradient-to-r from-[#00F2FF] to-[#8A2BE2] transform -skew-x-12 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
                   <span className="relative magnetic-inner">[ Apply for Initiation ]</span>
               </button>
