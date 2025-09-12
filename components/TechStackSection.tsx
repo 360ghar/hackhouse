@@ -62,7 +62,7 @@ const TechStackSection: React.FC = () => {
               className="logo-orbit"
               style={{ animationDelay: `${-i * 1.5}s` }}
             >
-              <div className="logo-card glass-pane">{logo}</div>
+              <div className="interactive logo-card glass-pane">{logo}</div>
             </div>
           ))}
           <div className="sphere-core"></div>
@@ -81,6 +81,7 @@ const TechStackSection: React.FC = () => {
           position: relative;
           transform-style: preserve-3d;
           animation: rotate-sphere 20s linear infinite;
+          will-change: transform;
         }
         @media (min-width: 768px) {
             .sphere-container { width: 400px; height: 400px; }
@@ -97,12 +98,16 @@ const TechStackSection: React.FC = () => {
             background: radial-gradient(circle, #00F2FF, #8A2BE2 80%);
             border-radius: 50%;
             box-shadow: 0 0 30px #00F2FF, 0 0 60px #8A2BE2;
+            animation: core-breathe 3s var(--ease-in-out) infinite;
+            will-change: transform, box-shadow;
         }
+        @keyframes core-breathe { 0%, 100% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 30px #00F2FF, 0 0 60px #8A2BE2; } 50% { transform: translate(-50%, -50%) scale(1.06); box-shadow: 0 0 40px #00F2FF, 0 0 80px #8A2BE2; } }
         .logo-orbit {
           position: absolute;
           top: 0; left: 0; right: 0; bottom: 0;
           transform-style: preserve-3d;
           animation: rotate-orbit 12s linear infinite;
+          will-change: transform;
         }
         @keyframes rotate-orbit {
           from { transform: rotateY(0deg) rotateX(60deg) rotateZ(0deg); }
@@ -117,8 +122,9 @@ const TechStackSection: React.FC = () => {
           font-family: 'IBM Plex Mono', monospace;
           color: white;
           font-size: 14px;
-          transition: all 0.3s ease;
+          transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out), color var(--dur-base) var(--ease-out);
           transform-origin: center;
+          will-change: transform;
         }
         @media (min-width: 768px) {
             .logo-card { transform: translate(-50%, -50%) translateZ(200px); font-size: 16px; }
@@ -130,6 +136,12 @@ const TechStackSection: React.FC = () => {
         }
         @media (min-width: 768px) {
             .logo-orbit:hover .logo-card { transform: translate(-50%, -50%) translateZ(210px) scale(1.1); }
+        }
+        /* Respect reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+          .sphere-container { animation: none; }
+          .logo-orbit { animation: none; }
+          .sphere-core { animation: none; }
         }
 
        `}</style>

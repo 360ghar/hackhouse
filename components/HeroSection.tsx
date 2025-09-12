@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const AnimatedText: React.FC<{ text: string; effect: 'typewriter' | 'glitch' }> = ({ text, effect }) => {
   const [displayText, setDisplayText] = useState('');
@@ -53,6 +53,7 @@ const AISummarySection: React.FC = () => (
 const HeroSection: React.FC = () => {
     const [showLine2, setShowLine2] = useState(false);
     const [showLine3, setShowLine3] = useState(false);
+    const btnRef = useRef<HTMLButtonElement>(null);
 
     useEffect(() => {
         const timer1 = setTimeout(() => setShowLine2(true), 1000);
@@ -63,22 +64,43 @@ const HeroSection: React.FC = () => {
         };
     }, [])
 
+    useEffect(() => {
+      const el = btnRef.current;
+      if (!el) return;
+      const inner = el.querySelector('.magnetic-inner') as HTMLElement | null;
+      if (!inner) return;
+      const onMove = (e: MouseEvent) => {
+        const r = el.getBoundingClientRect();
+        const x = e.clientX - (r.left + r.width / 2);
+        const y = e.clientY - (r.top + r.height / 2);
+        const damp = 14; // smaller -> stronger
+        inner.style.transform = `translate(${x / damp}px, ${y / damp}px)`;
+      };
+      const onLeave = () => { inner.style.transform = 'translate(0,0)'; };
+      el.addEventListener('mousemove', onMove);
+      el.addEventListener('mouseleave', onLeave);
+      return () => {
+        el.removeEventListener('mousemove', onMove);
+        el.removeEventListener('mouseleave', onLeave);
+      };
+    }, []);
+
   return (
     <>
       <header className="h-screen flex flex-col items-center justify-center text-center relative px-4">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-wider text-white uppercase animate-fade-in-glow">
-            <span className="block" style={{ animationDelay: '0.5s' }}>Code.</span>
-            {showLine2 && <span className="block mt-2"><AnimatedText text="Collaborate." effect="typewriter" /></span>}
+            <span className="block holo-text" style={{ animationDelay: '0.5s' }}>Code.</span>
+            {showLine2 && <span className="block mt-2 holo-text"><AnimatedText text="Collaborate." effect="typewriter" /></span>}
             {showLine3 && <span className="block mt-2 cyber-gradient-text"><AnimatedText text="Conquer." effect="glitch" /></span>}
           </h1>
           <p className="mt-8 text-lg md:text-xl text-[#EAEAEA] max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '3.5s' }}>
             Welcome to HackHouse. A hacker house for founders in the heart of Gurgaon.
           </p>
           <div className="mt-12 animate-fade-in" style={{ animationDelay: '4s' }}>
-              <button className="relative group px-8 py-4 text-lg font-bold text-white uppercase overflow-hidden transition-all duration-300">
+              <button ref={btnRef} className="interactive magnetic relative group px-8 py-4 text-lg font-bold text-white uppercase overflow-hidden transition-all duration-300">
                   <span className="absolute inset-0 bg-gradient-to-r from-[#00F2FF] to-[#8A2BE2] transform -skew-x-12 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-                  <span className="relative">[ Apply for Initiation ]</span>
+                  <span className="relative magnetic-inner">[ Apply for Initiation ]</span>
               </button>
           </div>
         </div>

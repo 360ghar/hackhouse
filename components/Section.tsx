@@ -40,6 +40,7 @@ const Section: React.FC<SectionProps> = ({ children, className = '' }) => {
   return (
     <section
       ref={sectionRef}
+      data-in-view={isInView ? 'true' : 'false'}
       className={`py-20 md:py-32 min-h-[60vh] transition-all duration-1000 ${
         isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       } ${className}`}

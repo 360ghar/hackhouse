@@ -50,11 +50,32 @@
         font-family: 'Inter', sans-serif;
         background-color: #0A0A0A;
       }
+      :root {
+        --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+        --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+        --ease-snap: cubic-bezier(0.15, 0.85, 0.25, 1);
+        --dur-fast: 180ms;
+        --dur-base: 420ms;
+        --dur-slow: 900ms;
+        --acc-cyan: #00F2FF;
+        --acc-purple: #8A2BE2;
+        --text: #EAEAEA;
+        --bg: #0A0A0A;
+      }
       h1, h2, h3, h4, h5, h6, [data-font-mono] {
         font-family: 'IBM Plex Mono', monospace;
       }
-      .cyber-gradient-text {
-        @apply text-transparent bg-clip-text bg-gradient-to-r from-[#00F2FF] to-[#8A2BE2];
+      /* NOTE: Tailwind CDN doesn't process @apply here, so provide a fallback */
+      .cyber-gradient-text { 
+        background: linear-gradient(90deg, var(--acc-cyan), var(--acc-purple));
+        -webkit-background-clip: text; background-clip: text; color: transparent;
+      }
+      .holo-text { /* multi‑shadow holographic effect */
+        text-shadow:
+          0 0 6px rgba(0,242,255,0.35),
+          0 0 14px rgba(138,43,226,0.25),
+          0 0 28px rgba(138,43,226,0.15),
+          0 0 2px rgba(255,255,255,0.2);
       }
       .glass-pane {
         background-color: rgba(28, 28, 30, 0.5);
@@ -65,6 +86,33 @@
       .scroll-container {
         scroll-behavior: smooth;
       }
+      /* simple z-index layers when not using tailwind utilities */
+      .layer-bg { z-index: 0; }
+      .layer-content { z-index: 10; }
+      .layer-float { z-index: 20; }
+      .layer-top { z-index: 30; }
+      
+      /* Reduced motion preference */
+      @media (prefers-reduced-motion: reduce) {
+        * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+        .scroll-container { scroll-behavior: auto; }
+      }
+      
+      /* Animated gradient utility */
+      @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      .animated-gradient {
+        background: linear-gradient(120deg, rgba(0,242,255,0.2), rgba(138,43,226,0.2), rgba(0,242,255,0.2));
+        background-size: 200% 200%;
+        animation: gradientShift 12s var(--ease-in-out) infinite;
+      }
+      
+      /* Magnetic button helpers */
+      .magnetic { position: relative; overflow: hidden; will-change: transform; }
+      .magnetic-inner { transition: transform var(--dur-base) var(--ease-out); will-change: transform; }
        /* For Webkit browsers */
       .scroll-container::-webkit-scrollbar {
         width: 6px;

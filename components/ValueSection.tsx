@@ -25,16 +25,17 @@ const AnimatedCheckmark: React.FC<{ active: boolean }> = ({ active }) => (
     </svg>
 );
 
-const ValueCard: React.FC<{ text: string; }> = ({ text }) => {
+const ValueCard: React.FC<{ text: string; index?: number; }> = ({ text, index = 0 }) => {
   const [isHovered, setIsHovered] = useState(false);
   return (
     <div
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="relative glass-pane rounded-lg p-6 my-2 transition-all duration-300 ease-out transform-gpu overflow-hidden border-l-2 border-transparent hover:border-l-2 hover:border-[#00F2FF]"
+      className="interactive relative glass-pane rounded-lg p-6 my-2 transition-all duration-300 ease-out transform-gpu overflow-hidden border-l-2 border-transparent hover:border-l-2 hover:border-[#00F2FF]"
       style={{
         transform: isHovered ? 'perspective(1000px) rotateY(-3deg) scale(1.05)' : 'none',
-        boxShadow: isHovered ? '0 25px 50px -12px rgba(0, 242, 255, 0.15)' : 'none'
+        boxShadow: isHovered ? '0 25px 50px -12px rgba(0, 242, 255, 0.15)' : 'none',
+        transitionDelay: `${index * 80}ms`
       }}
     >
       <div className={`absolute top-0 left-0 w-1/2 h-full bg-gradient-to-r from-[#00F2FF]/20 to-transparent transition-transform duration-500 ease-out pointer-events-none -skew-x-12 ${isHovered ? 'translate-x-[250%]' : '-translate-x-full'}`}></div>
@@ -61,12 +62,21 @@ const ValueSection: React.FC = () => {
                 For ₹30k/month, you don't just get a room. You get an entire ecosystem. We've collapsed the cost of living, working, and building into a single, optimized data stream.
             </p>
         </div>
-        <div>
+        <div className="stagger">
           {benefits.map((benefit, index) => (
-            <ValueCard key={index} text={benefit} />
+            <ValueCard key={index} text={benefit} index={index} />
           ))}
         </div>
       </div>
+      <style>{`
+        @keyframes fadeInUp { 0% { opacity: 0; transform: translateY(6px) } 100% { opacity: 1; transform: translateY(0) } }
+        [data-in-view="true"] .stagger > * { opacity: 0; transform: translateY(6px); animation: fadeInUp 600ms var(--ease-out) forwards; }
+        [data-in-view="true"] .stagger > *:nth-child(1) { animation-delay: 60ms }
+        [data-in-view="true"] .stagger > *:nth-child(2) { animation-delay: 140ms }
+        [data-in-view="true"] .stagger > *:nth-child(3) { animation-delay: 220ms }
+        [data-in-view="true"] .stagger > *:nth-child(4) { animation-delay: 300ms }
+        [data-in-view="true"] .stagger > *:nth-child(5) { animation-delay: 380ms }
+      `}</style>
     </Section>
   );
 };
