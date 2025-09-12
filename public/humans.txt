@@ -1,0 +1,9 @@
+/* TEAM */
+Developer: HackHouse
+Site: https://hackhouse.360ghar.com/
+Location: Gurgaon, Haryana, India
+
+/* SITE */
+Standards: HTML5, CSS3, ES2023
+Components: React 19, Vite 6, Tailwind (CDN)
+Software: VS Code

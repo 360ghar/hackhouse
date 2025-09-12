@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="12" fill="#0A0A0A"/>
+  <path d="M12 28 L32 14 L52 28 L52 52 L12 52 Z" fill="#8A2BE2" opacity="0.2"/>
+  <text x="50%" y="36" dominant-baseline="middle" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="16" fill="#00F2FF">HH</text>
+</svg>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://hackhouse.360ghar.com/</loc>
+    <image:image>
+      <image:loc>https://hackhouse.360ghar.com/images/house-exterior.jpg</image:loc>
+      <image:caption>HackHouse — Gurgaon Sector 50</image:caption>
+      <image:title>HackHouse Exterior</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://hackhouse.360ghar.com/images/coworking-space.jpg</image:loc>
+      <image:caption>24/7 co-working space at HackHouse</image:caption>
+      <image:title>HackHouse Coworking</image:title>
+    </image:image>
+  </url>
+</urlset>

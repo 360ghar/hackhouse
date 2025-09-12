@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  <url>
+    <loc>https://hackhouse.360ghar.com/</loc>
+    <video:video>
+      <video:thumbnail_loc>https://hackhouse.360ghar.com/videos/tour-thumb.jpg</video:thumbnail_loc>
+      <video:title>HackHouse Tour</video:title>
+      <video:description>Walkthrough of the HackHouse hacker house and co-working space in Gurgaon.</video:description>
+      <video:content_loc>https://hackhouse.360ghar.com/videos/tour.mp4</video:content_loc>
+      <video:publication_date>2025-01-01T00:00:00+05:30</video:publication_date>
+    </video:video>
+  </url>
+</urlset>

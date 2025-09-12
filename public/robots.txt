@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Point crawlers to your sitemaps
+Sitemap: /sitemap.xml
+Sitemap: /sitemap-images.xml
+Sitemap: /sitemap-videos.xml
+
+# Optional: remove crawl delay unless your server is weak
+# Crawl-delay: 2
