@@ -1,9 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 
+type Mode = 'coliving' | 'coworking' | 'tour';
+
 type Props = {
   open: boolean;
   onClose: () => void;
+  mode?: Mode;
 };
 
 const FieldLabel: React.FC<{ htmlFor: string; children: React.ReactNode }> = ({ htmlFor, children }) => (
@@ -14,7 +17,7 @@ const FieldLabel: React.FC<{ htmlFor: string; children: React.ReactNode }> = ({ 
 
 const InputBase = "w-full rounded-lg bg-[#121212]/70 border border-white/10 text-[#EAEAEA] placeholder-white/30 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[var(--acc-cyan)]/70 focus:border-[var(--acc-cyan)]/40 transition";
 
-const ApplicationFormModal: React.FC<Props> = ({ open, onClose }) => {
+const ApplicationFormModal: React.FC<Props> = ({ open, onClose, mode = 'coliving' }) => {
   const [state, handleSubmit] = useForm('xdkljezv');
   const dialogRef = useRef<HTMLDivElement>(null);
 
@@ -66,10 +69,14 @@ const ApplicationFormModal: React.FC<Props> = ({ open, onClose }) => {
             <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-6">
               <div className="min-w-0">
                 <h3 id="application-title" data-font-mono className="text-2xl md:text-3xl font-bold text-white tracking-wide">
-                  APPLY FOR INITIATION
+                  {mode === 'coworking' ? 'GET A DESK — COWORKING' : mode === 'tour' ? 'BOOK A TOUR' : 'APPLY FOR INITIATION'}
                 </h3>
                 <p className="text-sm text-[#EAEAEA]/70 mt-2 max-w-prose">
-                  Limited, curated spots. Tell us a bit about you and what you’re building.
+                  {mode === 'coworking'
+                    ? 'Co-working from ₹3,000/mo. Join the founders’ floor with fast Wi‑Fi and events.'
+                    : mode === 'tour'
+                      ? 'Come see the space, vibe, and meet a coordinator.'
+                      : 'Limited, curated residency spots. Tell us what you’re building.'}
                 </p>
               </div>
               <button
@@ -121,12 +128,51 @@ const ApplicationFormModal: React.FC<Props> = ({ open, onClose }) => {
                     <ValidationError prefix="Contact Number" field="phone" errors={state.errors} />
                   </div>
                 </div>
+                {mode !== 'tour' && (
+                  <div>
+                    <FieldLabel htmlFor="project">What are you building?</FieldLabel>
+                    <textarea id="project" name="project" rows={4} required placeholder="Tell us about your project, traction, and why HackHouse fits." className={InputBase} />
+                    <ValidationError prefix="Project" field="project" errors={state.errors} />
+                  </div>
+                )}
 
-                <div>
-                  <FieldLabel htmlFor="project">What are you building?</FieldLabel>
-                  <textarea id="project" name="project" rows={4} required placeholder="Tell us about your project, traction, and why HackHouse fits." className={InputBase} />
-                  <ValidationError prefix="Project" field="project" errors={state.errors} />
-                </div>
+                {/* Mode-specific fields */}
+                {mode === 'coworking' && (
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div>
+                      <FieldLabel htmlFor="plan">Plan Preference</FieldLabel>
+                      <select id="plan" name="plan" className={InputBase} defaultValue="day-pass">
+                        <option value="day-pass">Day Pass</option>
+                        <option value="night-owl">Night Owl</option>
+                      </select>
+                    </div>
+                    <div>
+                      <FieldLabel htmlFor="start">Preferred Start Date</FieldLabel>
+                      <input id="start" name="start" type="date" className={InputBase} />
+                    </div>
+                    <div>
+                      <FieldLabel htmlFor="city">City / Location</FieldLabel>
+                      <input id="city" name="city" placeholder="Gurgaon" className={InputBase} />
+                    </div>
+                  </div>
+                )}
+
+                {mode === 'tour' && (
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div>
+                      <FieldLabel htmlFor="tour-date">Tour Date</FieldLabel>
+                      <input id="tour-date" name="tour_date" type="date" className={InputBase} />
+                    </div>
+                    <div>
+                      <FieldLabel htmlFor="tour-time">Preferred Time</FieldLabel>
+                      <input id="tour-time" name="tour_time" type="time" className={InputBase} />
+                    </div>
+                    <div>
+                      <FieldLabel htmlFor="tour-notes">Notes</FieldLabel>
+                      <input id="tour-notes" name="tour_notes" placeholder="Any specific questions?" className={InputBase} />
+                    </div>
+                  </div>
+                )}
 
                 <div>
                   <FieldLabel htmlFor="ref">How did you hear about us?</FieldLabel>
@@ -134,6 +180,7 @@ const ApplicationFormModal: React.FC<Props> = ({ open, onClose }) => {
                 </div>
 
                 <input type="hidden" name="form_name" value="HackHouse Application" />
+                <input type="hidden" name="interest" value={mode === 'coworking' ? 'Coworking Desk' : mode === 'tour' ? 'Tour Booking' : 'Residency / Co-living'} />
 
                 <div className="pt-2 flex items-center justify-between gap-4">
                   <button
@@ -154,10 +201,10 @@ const ApplicationFormModal: React.FC<Props> = ({ open, onClose }) => {
                       {state.submitting ? (
                         <>
                           <span className="inline-block h-4 w-4 rounded-full border-2 border-black/40 border-t-black animate-spin" />
-                          Submitting
+                          {mode === 'coworking' ? 'Submitting' : mode === 'tour' ? 'Booking' : 'Submitting'}
                         </>
                       ) : (
-                        <>Submit</>
+                        <>{mode === 'coworking' ? 'Submit' : mode === 'tour' ? 'Book Tour' : 'Submit'}</>
                       )}
                     </span>
                   </button>
