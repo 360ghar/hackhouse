@@ -54,7 +54,7 @@ const TechStackSection: React.FC = () => {
       <h2 data-font-mono className="text-4xl md:text-5xl font-bold text-white tracking-wider">
         YOUR FOUNDER'S ARSENAL. UNLOCKED.
       </h2>
-      <div className="relative w-full h-[400px] md:h-[500px] my-16 flex items-center justify-center">
+      <div className="relative w-full h-72 sm:h-80 md:h-[500px] my-12 sm:my-16 flex items-center justify-center">
         <div className="sphere-container">
           {techLogos.map((logo, i) => (
             <div
@@ -75,13 +75,16 @@ const TechStackSection: React.FC = () => {
         AT JUST ₹30,000.
       </p>
        <style>{`
-        .sphere-container {
+       .sphere-container {
           width: 300px;
           height: 300px;
           position: relative;
           transform-style: preserve-3d;
           animation: rotate-sphere 20s linear infinite;
           will-change: transform;
+        }
+        @media (max-width: 640px) {
+          .sphere-container { width: 220px; height: 220px; }
         }
         @media (min-width: 768px) {
             .sphere-container { width: 400px; height: 400px; }
@@ -126,6 +129,9 @@ const TechStackSection: React.FC = () => {
           transform-origin: center;
           will-change: transform;
         }
+        @media (max-width: 640px) {
+          .logo-card { transform: translate(-50%, -50%) translateZ(120px); font-size: 12px; padding: 6px 10px; }
+        }
         @media (min-width: 768px) {
             .logo-card { transform: translate(-50%, -50%) translateZ(200px); font-size: 16px; }
         }
@@ -136,6 +142,14 @@ const TechStackSection: React.FC = () => {
         }
         @media (min-width: 768px) {
             .logo-orbit:hover .logo-card { transform: translate(-50%, -50%) translateZ(210px) scale(1.1); }
+        }
+        /* Mobile: emulate hover state by default */
+        @media (hover: none) {
+          .logo-card {
+            transform: translate(-50%, -50%) translateZ(160px) scale(1.06);
+            box-shadow: 0 0 10px rgba(0,242,255,0.35);
+            color: #EAEAEA;
+          }
         }
         /* Respect reduced motion */
         @media (prefers-reduced-motion: reduce) {

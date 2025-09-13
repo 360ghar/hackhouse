@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Section from './Section';
+import { usePointerInfo } from './usePointerInfo';
 
 const benefits = [
   'Fully-furnished rooms',
@@ -25,23 +26,25 @@ const AnimatedCheckmark: React.FC<{ active: boolean }> = ({ active }) => (
     </svg>
 );
 
-const ValueCard: React.FC<{ text: string; index?: number; }> = ({ text, index = 0 }) => {
+const ValueCard: React.FC<{ text: string; index?: number; autoActive?: boolean; inView?: boolean; }> = ({ text, index = 0, autoActive = false, inView = false }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const active = isHovered || (autoActive && inView);
   return (
     <div
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className="interactive relative glass-pane rounded-lg p-6 my-2 transition-all duration-300 ease-out transform-gpu overflow-hidden border-l-2 border-transparent hover:border-l-2 hover:border-[#00F2FF]"
       style={{
-        transform: isHovered ? 'perspective(1000px) rotateY(-3deg) scale(1.05)' : 'none',
-        boxShadow: isHovered ? '0 25px 50px -12px rgba(0, 242, 255, 0.15)' : 'none',
+        borderLeftColor: active ? '#00F2FF' as const : undefined,
+        transform: active ? 'perspective(1000px) rotateY(-3deg) scale(1.05)' : 'none',
+        boxShadow: active ? '0 25px 50px -12px rgba(0, 242, 255, 0.15)' : 'none',
         transitionDelay: `${index * 80}ms`
       }}
     >
-      <div className={`absolute top-0 left-0 w-1/2 h-full bg-gradient-to-r from-[#00F2FF]/20 to-transparent transition-transform duration-500 ease-out pointer-events-none -skew-x-12 ${isHovered ? 'translate-x-[250%]' : '-translate-x-full'}`}></div>
+      <div className={`absolute top-0 left-0 w-1/2 h-full bg-gradient-to-r from-[#00F2FF]/20 to-transparent transition-transform duration-500 ease-out pointer-events-none -skew-x-12 ${active ? 'translate-x-[250%]' : '-translate-x-full'}`}></div>
 
       <div className="flex items-center relative z-10">
-        <AnimatedCheckmark active={isHovered} />
+        <AnimatedCheckmark active={active} />
         <span className="text-lg text-white">{text}</span>
       </div>
     </div>
@@ -49,12 +52,26 @@ const ValueCard: React.FC<{ text: string; index?: number; }> = ({ text, index = 
 };
 
 const ValueSection: React.FC = () => {
+  const { hoverCapable, coarsePointer } = usePointerInfo();
+  const listRef = useRef<HTMLDivElement>(null);
+  const [listInView, setListInView] = useState(false);
+
+  useEffect(() => {
+    const el = listRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) setListInView(true);
+    }, { threshold: 0.15 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
   return (
     <Section>
-      <div className="grid md:grid-cols-2 gap-16 items-start">
-        <div className="md:sticky top-32 pl-8">
+      <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-start">
+        <div className="md:sticky top-24 md:top-32 pl-0 md:pl-8">
             <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#00F2FF]/50 to-[#8A2BE2]/50 animate-pulse"></div>
-            <h2 data-font-mono className="text-4xl md:text-5xl font-bold text-white tracking-wider">
+            <h2 data-font-mono className="text-4xl md:text-5xl leading-tight font-bold text-white tracking-wider">
                 THE 30K EQUATION
             </h2>
             <div className="h-1 w-24 my-6 bg-gradient-to-r from-[#00F2FF] to-[#8A2BE2]"></div>
@@ -62,9 +79,9 @@ const ValueSection: React.FC = () => {
                 For ₹30k/month, you don't just get a room. You get an entire ecosystem. We've collapsed the cost of living, working, and building into a single, optimized data stream.
             </p>
         </div>
-        <div className="stagger">
+        <div ref={listRef} className="stagger">
           {benefits.map((benefit, index) => (
-            <ValueCard key={index} text={benefit} index={index} />
+            <ValueCard key={index} text={benefit} index={index} autoActive={!hoverCapable || coarsePointer} inView={listInView} />
           ))}
         </div>
       </div>

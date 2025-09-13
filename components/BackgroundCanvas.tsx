@@ -144,7 +144,10 @@ const BackgroundCanvas: React.FC = () => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     let particles: Particle[] = [];
-    const baseCount = prefersReducedMotion ? 80 : 220;
+    // Scale particle count with viewport area for mobile responsiveness
+    const area = window.innerWidth * window.innerHeight;
+    const densityTarget = prefersReducedMotion ? 16000 : 12000; // larger = fewer particles
+    const baseCount = Math.max(80, Math.min(220, Math.round(area / densityTarget)));
     for (let i = 0; i < baseCount; i++) {
       particles.push(new Particle(Math.random() * width, Math.random() * height));
     }
@@ -186,6 +189,15 @@ const BackgroundCanvas: React.FC = () => {
       trail.push({ x: e.clientX, y: e.clientY });
       if (trail.length > 16) trail.shift();
     });
+    // Basic touch support
+    canvas.addEventListener('touchmove', (e) => {
+      const t = e.touches[0];
+      if (!t) return;
+      mouse.x = t.clientX;
+      mouse.y = t.clientY;
+      trail.push({ x: t.clientX, y: t.clientY });
+      if (trail.length > 16) trail.shift();
+    }, { passive: true });
 
     const connect = () => {
         if(!ctx) return;

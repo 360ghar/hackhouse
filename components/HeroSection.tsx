@@ -87,9 +87,9 @@ const HeroSection: React.FC<{ onApplyClick?: () => void }> = ({ onApplyClick }) 
 
   return (
     <>
-      <header className="h-screen flex flex-col items-center justify-center text-center relative px-4">
+      <header className="min-h-[100svh] flex flex-col items-center justify-center text-center relative px-4 py-20 sm:py-24">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-wider text-white uppercase animate-fade-in-glow">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl leading-tight font-bold tracking-wider text-white uppercase animate-fade-in-glow">
             <span className="block holo-text" style={{ animationDelay: '0.5s' }}>Code.</span>
             {showLine2 && <span className="block mt-2 holo-text"><AnimatedText text="Collaborate." effect="typewriter" /></span>}
             {showLine3 && <span className="block mt-2 cyber-gradient-text"><AnimatedText text="Conquer." effect="glitch" /></span>}
@@ -97,14 +97,14 @@ const HeroSection: React.FC<{ onApplyClick?: () => void }> = ({ onApplyClick }) 
           <p className="mt-8 text-lg md:text-xl text-[#EAEAEA] max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '3.5s' }}>
             Welcome to HackHouse. A hacker house for founders in the heart of Gurgaon.
           </p>
-          <div className="mt-12 animate-fade-in" style={{ animationDelay: '4s' }}>
+          <div className="mt-10 sm:mt-12 animate-fade-in" style={{ animationDelay: '4s' }}>
               <button ref={btnRef} onClick={onApplyClick} className="interactive magnetic relative group px-8 py-4 text-lg font-bold text-white uppercase overflow-hidden transition-all duration-300">
                   <span className="absolute inset-0 bg-gradient-to-r from-[#00F2FF] to-[#8A2BE2] transform -skew-x-12 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
                   <span className="relative magnetic-inner">[ Apply for Initiation ]</span>
               </button>
           </div>
         </div>
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+        <div className="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-[#00F2FF]">
                 <path d="M12 5V19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 <path d="M19 12L12 19L5 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>

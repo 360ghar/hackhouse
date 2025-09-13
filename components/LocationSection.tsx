@@ -30,7 +30,7 @@ const LocationSection: React.FC = () => {
       <h2 data-font-mono className="text-4xl md:text-5xl font-bold text-white tracking-wider">
         THE EPICENTER: SECTOR 50, GURGAON.
       </h2>
-      <div ref={wrapRef} className="interactive relative w-full max-w-4xl mx-auto my-16 aspect-video flex items-center justify-center">
+      <div ref={wrapRef} className="interactive relative w-full max-w-4xl mx-auto my-12 sm:my-16 aspect-video flex items-center justify-center">
         {/* Futuristic HUD layers */}
         <div className="pointer-events-none absolute inset-0 hud-grid" aria-hidden="true"></div>
         <div className="pointer-events-none absolute inset-0 radar-sweep" aria-hidden="true"></div>

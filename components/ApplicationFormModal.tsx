@@ -33,6 +33,17 @@ const ApplicationFormModal: React.FC<Props> = ({ open, onClose }) => {
     el?.focus();
   }, [open]);
 
+  // Lock background scroll when modal is open
+  useEffect(() => {
+    const scroller = document.getElementById('scrollRoot');
+    if (!scroller) return;
+    if (open) {
+      const prev = scroller.style.overflow;
+      scroller.style.overflow = 'hidden';
+      return () => { scroller.style.overflow = prev || 'auto'; };
+    }
+  }, [open]);
+
   if (!open) return null;
 
   return (
@@ -44,16 +55,17 @@ const ApplicationFormModal: React.FC<Props> = ({ open, onClose }) => {
       <div
         role="dialog"
         aria-modal="true"
+        aria-labelledby="application-title"
         className="absolute inset-0 flex items-center justify-center p-4"
       >
-        <div ref={dialogRef} className="relative w-full max-w-2xl glass-pane rounded-2xl border border-white/10 shadow-2xl overflow-hidden">
+        <div ref={dialogRef} className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto overscroll-contain glass-pane rounded-2xl border border-white/10 shadow-2xl">
           {/* Top accent bar */}
           <div className="h-1 w-full bg-gradient-to-r from-[var(--acc-cyan)] to-[var(--acc-purple)]" />
 
           <div className="p-6 md:p-8">
-            <div className="flex items-start justify-between mb-6">
-              <div>
-                <h3 data-font-mono className="text-2xl md:text-3xl font-bold text-white tracking-wide">
+            <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-6">
+              <div className="min-w-0">
+                <h3 id="application-title" data-font-mono className="text-2xl md:text-3xl font-bold text-white tracking-wide">
                   APPLY FOR INITIATION
                 </h3>
                 <p className="text-sm text-[#EAEAEA]/70 mt-2 max-w-prose">
@@ -63,7 +75,7 @@ const ApplicationFormModal: React.FC<Props> = ({ open, onClose }) => {
               <button
                 onClick={onClose}
                 aria-label="Close"
-                className="ml-4 text-white/70 hover:text-white transition"
+                className="sm:ml-4 self-start text-white/70 hover:text-white transition"
               >
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M6 6L18 18M6 18L18 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
@@ -145,7 +157,7 @@ const ApplicationFormModal: React.FC<Props> = ({ open, onClose }) => {
                           Submitting
                         </>
                       ) : (
-                        <>Submit Application</>
+                        <>Submit</>
                       )}
                     </span>
                   </button>

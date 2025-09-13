@@ -23,7 +23,7 @@ const benefits = [
 
 const BenefitCard: React.FC<{ title: string; text: string, index: number }> = ({ title, text, index }) => {
     return (
-        <div className="glass-pane rounded-xl p-8 transform-gpu transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-[#8A2BE2]/20" style={{ transitionDelay: `${index * 100}ms` }}>
+        <div className="glass-pane rounded-xl p-6 sm:p-8 transform-gpu transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-[#8A2BE2]/20" style={{ transitionDelay: `${index * 100}ms` }}>
             <h3 data-font-mono className="text-2xl font-bold text-white cyber-gradient-text mb-4">{title}</h3>
             <p className="text-[#EAEAEA] leading-relaxed">{text}</p>
         </div>
@@ -36,7 +36,7 @@ const BenefitsSection: React.FC = () => {
       <h2 data-font-mono className="text-4xl md:text-5xl font-bold text-white tracking-wider max-w-3xl mx-auto">
         UPGRADE YOUR OPERATING SYSTEM.
       </h2>
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mt-12 sm:mt-16">
         {benefits.map((benefit, i) => (
           <BenefitCard key={i} title={benefit.title} text={benefit.text} index={i} />
         ))}

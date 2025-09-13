@@ -18,11 +18,11 @@ const communityBenefits = [
 const CommunitySection: React.FC = () => {
   return (
     <Section>
-      <div className="grid lg:grid-cols-2 gap-16 items-center">
-        <div className="relative w-full h-[400px] flex items-center justify-center">
+      <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+        <div className="relative w-full h-80 sm:h-96 lg:h-[400px] flex items-center justify-center">
             <div className="community-orb-container">
                 {builders.map((builder, index) => (
-                    <div key={index} className="orb-wrapper" style={{ transform: `rotate(${index * 45}deg) translateY(-150px)` }}>
+                    <div key={index} className="orb-wrapper" style={{ transform: `rotate(${index * 45}deg) translateY(var(--orb-radius))` }}>
                         <div className="orb group">
                             <span className="orb-label">{builder}</span>
                         </div>
@@ -34,8 +34,12 @@ const CommunitySection: React.FC = () => {
                     position: relative;
                     width: 100px;
                     height: 100px;
+                    --orb-radius: -150px;
                     animation: slow-rotate 40s linear infinite;
                     transform-style: preserve-3d;
+                }
+                @media (max-width: 640px) {
+                    .community-orb-container { --orb-radius: -120px; }
                 }
                 @keyframes slow-rotate {
                     from { transform: rotate(0deg); }
@@ -79,6 +83,11 @@ const CommunitySection: React.FC = () => {
                 }
                 .orb:hover .orb-label {
                     opacity: 1;
+                }
+                /* Mobile: show labels and slight scale by default */
+                @media (hover: none) {
+                  .orb-label { opacity: 1; }
+                  .orb { transform: scale(1.06); }
                 }
             `}</style>
         </div>
