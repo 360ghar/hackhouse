@@ -25,7 +25,16 @@ const App: React.FC = () => {
         <title>HackHouse - Premium Hacker House for AI Builders in Gurgaon | Apply Now</title>
         <meta name="description" content="HackHouse is India's premier hacker house for AI builders, offering curated residency in Gurgaon with 1Gbps WiFi, private rooms, and a thriving founder community." />
       </Helmet>
+
+      {/* Background systems */}
       <BackgroundCanvas />
+      <div className="grid-overlay layer-bg" aria-hidden="true"></div>
+      <div className="ambient-aurora layer-bg" aria-hidden="true">
+        <span className="aurora a1"></span>
+        <span className="aurora a2"></span>
+        <span className="aurora a3"></span>
+      </div>
+
       <div className="relative z-10">
         <HeroSection
           onApplyClick={() => { setModalMode('coliving'); setApplyOpen(true); }}

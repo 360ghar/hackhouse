@@ -49,6 +49,7 @@
       body {
         font-family: 'Inter', sans-serif;
         background-color: #0A0A0A;
+        color: var(--text);
       }
       :root {
         --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
@@ -61,6 +62,11 @@
         --acc-purple: #8A2BE2;
         --text: #EAEAEA;
         --bg: #0A0A0A;
+
+        /* Extended accent palette for subtle depth */
+        --acc-cyan-soft: rgba(0,242,255,0.25);
+        --acc-purple-soft: rgba(138,43,226,0.25);
+        --surface: rgba(28,28,30,0.5);
       }
       h1, h2, h3, h4, h5, h6, [data-font-mono] {
         font-family: 'IBM Plex Mono', monospace;
@@ -78,10 +84,11 @@
           0 0 2px rgba(255,255,255,0.2);
       }
       .glass-pane {
-        background-color: rgba(28, 28, 30, 0.5);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        background-color: var(--surface);
+        backdrop-filter: blur(14px) saturate(1.05);
+        -webkit-backdrop-filter: blur(14px) saturate(1.05);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04), 0 20px 40px -20px rgba(0,0,0,0.6);
       }
       .scroll-container {
         scroll-behavior: smooth;
@@ -91,13 +98,56 @@
       .layer-content { z-index: 10; }
       .layer-float { z-index: 20; }
       .layer-top { z-index: 30; }
-      
-      /* Reduced motion preference */
-      @media (prefers-reduced-motion: reduce) {
-        * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
-        .scroll-container { scroll-behavior: auto; }
+
+      /* Ambient grid overlay for subtle futurism */
+      .grid-overlay {
+        position: fixed; inset: 0; pointer-events: none;
+        background-image:
+          linear-gradient(rgba(138,43,226,0.08) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0,242,255,0.08) 1px, transparent 1px);
+        background-size: 30px 30px, 30px 30px;
+        background-position: center center;
+        opacity: 0.15;
+        mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.9), transparent 70%);
       }
-      
+
+      /* Aurora layers */
+      .ambient-aurora { position: fixed; inset: 0; pointer-events: none; }
+      .ambient-aurora .aurora {
+        position: absolute;
+        width: 60vmax; height: 60vmax;
+        filter: blur(60px);
+        opacity: 0.2;
+        mix-blend-mode: screen;
+        animation: floatAurora 18s var(--ease-in-out) infinite;
+        will-change: transform;
+      }
+      .ambient-aurora .aurora.a1 {
+        top: -20vmin; left: -10vmin;
+        background: radial-gradient(circle at 30% 30%, var(--acc-cyan-soft), transparent 60%);
+      }
+      .ambient-aurora .aurora.a2 {
+        bottom: -30vmin; right: -20vmin;
+        background: radial-gradient(circle at 70% 70%, var(--acc-purple-soft), transparent 60%);
+        animation-delay: -6s;
+      }
+      .ambient-aurora .aurora.a3 {
+        top: 20vmin; right: -10vmin;
+        background: radial-gradient(circle at 60% 40%, rgba(255,255,255,0.06), transparent 60%);
+        animation-delay: -12s;
+      }
+      @keyframes floatAurora {
+        0%, 100% { transform: translate(0,0) scale(1); }
+        50% { transform: translate(3%, -2%) scale(1.05); }
+      }
+
+      /* Hero halo focuses attention on center for first impression */
+      .hero-halo {
+        background: radial-gradient(ellipse at center, rgba(255,255,255,0.06), transparent 60%);
+        mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.9), transparent 70%);
+        opacity: 0.6;
+      }
+
       /* Animated gradient utility */
       @keyframes gradientShift {
         0% { background-position: 0% 50%; }
@@ -113,19 +163,18 @@
       /* Magnetic button helpers */
       .magnetic { position: relative; overflow: hidden; will-change: transform; }
       .magnetic-inner { transition: transform var(--dur-base) var(--ease-out); will-change: transform; }
-       /* For Webkit browsers */
-      .scroll-container::-webkit-scrollbar {
-        width: 6px;
-      }
-      .scroll-container::-webkit-scrollbar-track {
-        background: #0A0A0A;
-      }
-      .scroll-container::-webkit-scrollbar-thumb {
-        background: #8A2BE2;
-        border-radius: 3px;
-      }
-      .scroll-container::-webkit-scrollbar-thumb:hover {
-        background: #00F2FF;
+
+      /* Custom scrollbar for WebKit */
+      .scroll-container::-webkit-scrollbar { width: 6px; }
+      .scroll-container::-webkit-scrollbar-track { background: #0A0A0A; }
+      .scroll-container::-webkit-scrollbar-thumb { background: #8A2BE2; border-radius: 3px; }
+      .scroll-container::-webkit-scrollbar-thumb:hover { background: #00F2FF; }
+
+      /* Safety: Reduced motion preference */
+      @media (prefers-reduced-motion: reduce) {
+        * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+        .scroll-container { scroll-behavior: auto; }
+        .ambient-aurora .aurora { animation: none; }
       }
     </style>
   <script type="importmap">
