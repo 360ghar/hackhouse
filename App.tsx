@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import BackgroundCanvas from './components/BackgroundCanvas';
+import AuroraOverlay from './components/AuroraOverlay';
 import { Helmet } from 'react-helmet-async';
 import HeroSection from './components/HeroSection';
 import ValueSection from './components/ValueSection';
@@ -26,6 +27,7 @@ const App: React.FC = () => {
         <meta name="description" content="HackHouse is India's premier hacker house for AI builders, offering curated residency in Gurgaon with 1Gbps WiFi, private rooms, and a thriving founder community." />
       </Helmet>
       <BackgroundCanvas />
+      <AuroraOverlay />
       <div className="relative z-10">
         <HeroSection
           onApplyClick={() => { setModalMode('coliving'); setApplyOpen(true); }}

@@ -113,6 +113,95 @@
       /* Magnetic button helpers */
       .magnetic { position: relative; overflow: hidden; will-change: transform; }
       .magnetic-inner { transition: transform var(--dur-base) var(--ease-out); will-change: transform; }
+
+      /* Futuristic aurora + scanlines overlay */
+      .aurora-root { z-index: 5; mix-blend-mode: screen; }
+      .aurora-blob {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(60px);
+        opacity: 0.25;
+        will-change: transform, opacity;
+        pointer-events: none;
+        mix-blend-mode: screen;
+      }
+      .aurora-a {
+        width: 42vw; height: 42vw;
+        top: 6%; left: 8%;
+        background: radial-gradient(circle at 30% 30%, rgba(0,242,255,0.65), transparent 60%);
+        transform: translate3d(calc(var(--mx, 50vw) * -0.03), calc(var(--my, 50vh) * -0.03), 0);
+        animation: auroraDriftA 26s var(--ease-in-out) infinite alternate;
+      }
+      .aurora-b {
+        width: 48vw; height: 48vw;
+        bottom: 10%; right: 6%;
+        background: radial-gradient(circle at 60% 40%, rgba(138,43,226,0.55), transparent 60%);
+        transform: translate3d(calc(var(--mx, 50vw) * 0.02), calc(var(--my, 50vh) * 0.02), 0);
+        animation: auroraDriftB 32s var(--ease-in-out) infinite alternate;
+      }
+      .aurora-c {
+        width: 30vw; height: 30vw;
+        top: 40%; left: 55%;
+        background: radial-gradient(circle at 50% 50%, rgba(0,242,255,0.35), rgba(138,43,226,0.35) 60%, transparent 70%);
+        transform: translate3d(calc(var(--mx, 50vw) * -0.015), calc(var(--my, 50vh) * 0.015), 0);
+        animation: auroraDriftC 38s var(--ease-in-out) infinite alternate;
+        opacity: 0.22;
+      }
+      @keyframes auroraDriftA {
+        0% { transform: translate3d(-2vw, -1vh, 0) scale(1); }
+        100% { transform: translate3d(1vw, 2vh, 0) scale(1.06); }
+      }
+      @keyframes auroraDriftB {
+        0% { transform: translate3d(1vw, -2vh, 0) scale(1.02); }
+        100% { transform: translate3d(-2vw, 1vh, 0) scale(1.08); }
+      }
+      @keyframes auroraDriftC {
+        0% { transform: translate3d(-1vw, 1vh, 0) scale(1); }
+        100% { transform: translate3d(2vw, -1vh, 0) scale(1.05); }
+      }
+
+      .scanlines {
+        position: absolute; inset: 0;
+        background-image: linear-gradient(to bottom, rgba(255,255,255,0.06) 1px, transparent 1px);
+        background-size: 100% 3px;
+        opacity: 0.08;
+        mix-blend-mode: soft-light;
+        pointer-events: none;
+      }
+      .visual-noise {
+        position: absolute; inset: 0;
+        background-image:
+          linear-gradient(0deg, rgba(255,255,255,0.02) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+        background-size: 2px 2px, 3px 3px;
+        opacity: 0.06;
+        mix-blend-mode: soft-light;
+        pointer-events: none;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .aurora-a, .aurora-b, .aurora-c { animation: none !important; }
+      }
+
+      /* Hero accent lines */
+      .hero-lines { pointer-events: none; position: absolute; inset: 0; }
+      .hero-line {
+        position: absolute; height: 2px; width: 62%;
+        left: 19%; top: 22%;
+        background: linear-gradient(90deg, rgba(0,242,255,0.0), rgba(0,242,255,0.65), rgba(138,43,226,0.65), rgba(138,43,226,0.0));
+        transform: rotate(-8deg);
+        filter: drop-shadow(0 0 6px rgba(0,242,255,0.35)) drop-shadow(0 0 6px rgba(138,43,226,0.25));
+        animation: linePulse 3.8s var(--ease-in-out) infinite;
+      }
+      .hero-line.second {
+        top: 68%; left: 10%; width: 54%;
+        transform: rotate(6deg);
+        animation-delay: 1.4s;
+      }
+      @keyframes linePulse {
+        0%, 100% { opacity: 0.55; }
+        50% { opacity: 0.95; }
+      }
+
        /* For Webkit browsers */
       .scroll-container::-webkit-scrollbar {
         width: 6px;
