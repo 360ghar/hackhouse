@@ -88,6 +88,12 @@ const HeroSection: React.FC<{ onApplyClick?: () => void; onCoworkingClick?: () =
   return (
     <>
       <header className="min-h-[100svh] flex flex-col items-center justify-center text-center relative px-4 py-20 sm:py-24">
+        {/* Hero accent lines */}
+        <div className="hero-lines" aria-hidden="true">
+          <div className="hero-line"></div>
+          <div className="hero-line second"></div>
+        </div>
+
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl leading-tight font-bold tracking-wider text-white uppercase animate-fade-in-glow">
             <span className="block holo-text" style={{ animationDelay: '0.5s' }}>Code.</span>
