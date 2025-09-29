@@ -54,34 +54,69 @@
         --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
         --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
         --ease-snap: cubic-bezier(0.15, 0.85, 0.25, 1);
+        --ease-elastic: cubic-bezier(0.68, -0.55, 0.265, 1.55);
         --dur-fast: 180ms;
         --dur-base: 420ms;
         --dur-slow: 900ms;
+        --dur-ultra: 1500ms;
+        
+        /* Expanded 2050 Color Palette */
         --acc-cyan: #00F2FF;
         --acc-purple: #8A2BE2;
+        --acc-pink: #FF006E;
+        --acc-green: #39FF14;
+        --acc-amber: #FFAA00;
+        --acc-violet: #7B2FFF;
+        --acc-blue: #0088FF;
+        
         --text: #EAEAEA;
+        --text-muted: #A0A0A0;
         --bg: #0A0A0A;
+        --bg-elevated: #1C1C1E;
       }
       h1, h2, h3, h4, h5, h6, [data-font-mono] {
         font-family: 'IBM Plex Mono', monospace;
       }
       /* NOTE: Tailwind CDN doesn't process @apply here, so provide a fallback */
       .cyber-gradient-text { 
-        background: linear-gradient(90deg, var(--acc-cyan), var(--acc-purple));
-        -webkit-background-clip: text; background-clip: text; color: transparent;
+        background: linear-gradient(135deg, var(--acc-cyan), var(--acc-purple), var(--acc-pink));
+        background-size: 200% 200%;
+        -webkit-background-clip: text; 
+        background-clip: text; 
+        color: transparent;
+        animation: gradient-shift 8s ease infinite;
       }
-      .holo-text { /* multi‑shadow holographic effect */
+      
+      @keyframes gradient-shift {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+      }
+      
+      .holo-text { /* Enhanced holographic effect */
         text-shadow:
-          0 0 6px rgba(0,242,255,0.35),
-          0 0 14px rgba(138,43,226,0.25),
-          0 0 28px rgba(138,43,226,0.15),
-          0 0 2px rgba(255,255,255,0.2);
+          0 0 10px rgba(0,242,255,0.5),
+          0 0 20px rgba(138,43,226,0.4),
+          0 0 40px rgba(138,43,226,0.2),
+          0 0 80px rgba(255,0,110,0.1),
+          0 0 4px rgba(255,255,255,0.3);
+        animation: holo-pulse 4s ease-in-out infinite;
       }
+      
+      @keyframes holo-pulse {
+        0%, 100% { filter: brightness(1) contrast(1); }
+        50% { filter: brightness(1.2) contrast(1.1); }
+      }
+      
       .glass-pane {
-        background-color: rgba(28, 28, 30, 0.5);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
+        background: linear-gradient(135deg, 
+          rgba(28, 28, 30, 0.6) 0%, 
+          rgba(28, 28, 30, 0.4) 100%);
+        backdrop-filter: blur(16px) saturate(180%);
+        -webkit-backdrop-filter: blur(16px) saturate(180%);
         border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 
+          0 8px 32px 0 rgba(0, 0, 0, 0.37),
+          inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
       }
       .scroll-container {
         scroll-behavior: smooth;
@@ -98,21 +133,122 @@
         .scroll-container { scroll-behavior: auto; }
       }
       
-      /* Animated gradient utility */
+      /* Enhanced animated gradients */
       @keyframes gradientShift {
         0% { background-position: 0% 50%; }
         50% { background-position: 100% 50%; }
         100% { background-position: 0% 50%; }
       }
+      
       .animated-gradient {
-        background: linear-gradient(120deg, rgba(0,242,255,0.2), rgba(138,43,226,0.2), rgba(0,242,255,0.2));
-        background-size: 200% 200%;
-        animation: gradientShift 12s var(--ease-in-out) infinite;
+        background: linear-gradient(
+          135deg, 
+          rgba(0,242,255,0.15), 
+          rgba(138,43,226,0.15), 
+          rgba(255,0,110,0.15),
+          rgba(0,242,255,0.15)
+        );
+        background-size: 400% 400%;
+        animation: gradientShift 15s var(--ease-in-out) infinite;
       }
       
       /* Magnetic button helpers */
-      .magnetic { position: relative; overflow: hidden; will-change: transform; }
-      .magnetic-inner { transition: transform var(--dur-base) var(--ease-out); will-change: transform; }
+      .magnetic { 
+        position: relative; 
+        overflow: hidden; 
+        will-change: transform;
+        transform: translateZ(0);
+      }
+      .magnetic-inner { 
+        transition: transform var(--dur-base) var(--ease-out); 
+        will-change: transform;
+      }
+      
+      /* Glow effects */
+      .glow-cyan {
+        box-shadow: 0 0 20px rgba(0, 242, 255, 0.3),
+                    0 0 40px rgba(0, 242, 255, 0.1);
+      }
+      
+      .glow-purple {
+        box-shadow: 0 0 20px rgba(138, 43, 226, 0.3),
+                    0 0 40px rgba(138, 43, 226, 0.1);
+      }
+      
+      .glow-pink {
+        box-shadow: 0 0 20px rgba(255, 0, 110, 0.3),
+                    0 0 40px rgba(255, 0, 110, 0.1);
+      }
+      
+      /* Neon border animation */
+      @keyframes neon-border {
+        0%, 100% {
+          box-shadow: 0 0 5px var(--acc-cyan),
+                      0 0 10px var(--acc-cyan),
+                      0 0 20px var(--acc-cyan);
+        }
+        50% {
+          box-shadow: 0 0 10px var(--acc-purple),
+                      0 0 20px var(--acc-purple),
+                      0 0 40px var(--acc-purple);
+        }
+      }
+      
+      .neon-border {
+        animation: neon-border 3s ease-in-out infinite;
+      }
+      
+      /* Scanline effect */
+      @keyframes scanline {
+        0% { transform: translateY(-100%); }
+        100% { transform: translateY(100%); }
+      }
+      
+      .scanline::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, 
+          transparent, 
+          rgba(0, 242, 255, 0.8), 
+          transparent);
+        animation: scanline 4s linear infinite;
+        pointer-events: none;
+      }
+      
+      /* Data stream effect */
+      @keyframes data-stream {
+        0% { 
+          transform: translateY(-100%) scaleY(0);
+          opacity: 0;
+        }
+        10% { 
+          opacity: 1;
+        }
+        90% {
+          opacity: 1;
+        }
+        100% { 
+          transform: translateY(100%) scaleY(1);
+          opacity: 0;
+        }
+      }
+      
+      /* Pixel perfect utilities */
+      .pixel-perfect {
+        image-rendering: pixelated;
+        image-rendering: -moz-crisp-edges;
+        image-rendering: crisp-edges;
+      }
+      
+      /* Advanced transforms */
+      .transform-3d {
+        transform-style: preserve-3d;
+        perspective: 1000px;
+      }
        /* For Webkit browsers */
       .scroll-container::-webkit-scrollbar {
         width: 6px;

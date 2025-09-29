@@ -1,16 +1,17 @@
 
 import React, { useState } from 'react';
-import BackgroundCanvas from './components/BackgroundCanvas';
+import EnhancedBackgroundCanvas from './components/EnhancedBackgroundCanvas';
+import AdvancedCursor from './components/AdvancedCursor';
 import { Helmet } from 'react-helmet-async';
 import HeroSection from './components/HeroSection';
-import ValueSection from './components/ValueSection';
-import TechStackSection from './components/TechStackSection';
-import CommunitySection from './components/CommunitySection';
+import EnhancedValueSection from './components/EnhancedValueSection';
+import EnhancedTechStackSection from './components/EnhancedTechStackSection';
+import EnhancedCommunitySection from './components/EnhancedCommunitySection';
 import BenefitsSection from './components/BenefitsSection';
 import LocationSection from './components/LocationSection';
-import FinalCtaSection from './components/FinalCtaSection';
+import EnhancedFinalCtaSection from './components/EnhancedFinalCtaSection';
 import ApplicationFormModal from './components/ApplicationFormModal';
-import CoWorkingSection from './components/CoWorkingSection';
+import EnhancedCoWorkingSection from './components/EnhancedCoWorkingSection';
 import CompareTable from './components/CompareTable';
 import OfferSwitch from './components/OfferSwitch';
 
@@ -22,15 +23,22 @@ const App: React.FC = () => {
   return (
     <div id="scrollRoot" className="bg-[#0A0A0A] text-[#EAEAEA] scroll-container h-screen overflow-y-auto overflow-x-hidden">
       <Helmet>
-        <title>HackHouse - Premium Hacker House for AI Builders in Gurgaon | Apply Now</title>
-        <meta name="description" content="HackHouse is India's premier hacker house for AI builders, offering curated residency in Gurgaon with 1Gbps WiFi, private rooms, and a thriving founder community." />
+        <title>HackHouse Protocol v4.7 - Neural Network for AI Builders | Gurgaon</title>
+        <meta name="description" content="HackHouse Protocol: Elite neural network for AI builders. Curated residency in Gurgaon with 1Gbps neural link, quantum living pods, and high-velocity founder community. Only 8 slots available." />
       </Helmet>
-      <BackgroundCanvas />
+      
+      {/* Enhanced background layers */}
+      <EnhancedBackgroundCanvas />
+      
+      {/* Advanced cursor effects */}
+      <AdvancedCursor />
+      
       <div className="relative z-10">
         <HeroSection
           onApplyClick={() => { setModalMode('coliving'); setApplyOpen(true); }}
           onCoworkingClick={() => { setModalMode('coworking'); setApplyOpen(true); }}
         />
+        
         <main className="px-6 md:px-12 lg:px-24">
           <div className="flex items-center justify-center pt-6">
             <OfferSwitch
@@ -43,23 +51,30 @@ const App: React.FC = () => {
               }}
             />
           </div>
+          
           <div id="residency" />
-          <ValueSection />
-          <TechStackSection />
-          <CommunitySection />
+          <EnhancedValueSection />
+          <EnhancedTechStackSection />
+          <EnhancedCommunitySection />
           <BenefitsSection />
-          <CoWorkingSection
+          <EnhancedCoWorkingSection
             onGetDeskClick={() => { setModalMode('coworking'); setApplyOpen(true); }}
             onBookTourClick={() => { setModalMode('tour'); setApplyOpen(true); }}
           />
           <CompareTable />
           <LocationSection />
-          <FinalCtaSection onApplyClick={() => { setModalMode('coliving'); setApplyOpen(true); }} />
+          <EnhancedFinalCtaSection onApplyClick={() => { setModalMode('coliving'); setApplyOpen(true); }} />
         </main>
-        <footer className="text-center py-8 text-gray-500 text-sm">
-          <p>&copy; 2025 HackHouse. All rights reserved.</p>
+        
+        <footer className="text-center py-12 text-gray-500 text-sm border-t border-white/5">
+          <div className="font-mono text-xs text-cyan-400 mb-2">PROTOCOL_STATUS: ACTIVE</div>
+          <p>&copy; 2025 HackHouse Protocol. All rights reserved.</p>
+          <div className="mt-2 text-xs text-gray-600">
+            Version 4.7.0 | Node: GURGAON-01 | Uptime: 99.9%
+          </div>
         </footer>
       </div>
+      
       <ApplicationFormModal open={applyOpen} onClose={() => setApplyOpen(false)} mode={modalMode} />
     </div>
   );
