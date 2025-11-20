@@ -23,7 +23,7 @@ const OfferSwitch: React.FC<{
             className={`px-4 sm:px-5 py-2 rounded-full text-sm font-medium transition relative ${
               active
                 ? 'text-black'
-                : 'text-[#EAEAEA]/80 hover:text-white'
+                : 'text-text/80 hover:text-white'
             }`}
           >
             {active && (

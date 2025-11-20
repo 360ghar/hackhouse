@@ -42,226 +42,128 @@
     <meta name="ICBM" content="28.4595, 77.0266">
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              mono: ['IBM Plex Mono', 'monospace'],
+            },
+            colors: {
+              background: 'var(--background)',
+              foreground: 'var(--foreground)',
+              primary: {
+                DEFAULT: 'var(--primary)',
+                foreground: 'var(--primary-foreground)',
+              },
+              secondary: {
+                DEFAULT: 'var(--secondary)',
+                foreground: 'var(--secondary-foreground)',
+              },
+              accent: {
+                DEFAULT: 'var(--accent)',
+                foreground: 'var(--accent-foreground)',
+              },
+              muted: {
+                DEFAULT: 'var(--muted)',
+                foreground: 'var(--muted-foreground)',
+              },
+              card: {
+                DEFAULT: 'var(--card)',
+                foreground: 'var(--card-foreground)',
+              },
+              border: 'var(--border)',
+            },
+            borderRadius: {
+              lg: 'var(--radius)',
+              md: 'calc(var(--radius) - 2px)',
+              sm: 'calc(var(--radius) - 4px)',
+            },
+          }
+        }
+      }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+      :root {
+        --background: #ffffff;
+        --foreground: #050505;
+        --card: #ffffff;
+        --card-foreground: #050505;
+        --popover: #ffffff;
+        --popover-foreground: #050505;
+        --primary: #2563eb;
+        --primary-foreground: #ffffff;
+        --secondary: #f3f4f6;
+        --secondary-foreground: #111827;
+        --muted: #f3f4f6;
+        --muted-foreground: #6b7280;
+        --accent: #f3f4f6;
+        --accent-foreground: #111827;
+        --destructive: #ef4444;
+        --destructive-foreground: #ffffff;
+        --border: #e5e7eb;
+        --input: #e5e7eb;
+        --ring: #2563eb;
+        --radius: 1rem;
+      }
+      
+      :root.dark {
+        --background: #050505;
+        --foreground: #ffffff;
+        --card: #111111;
+        --card-foreground: #ffffff;
+        --popover: #111111;
+        --popover-foreground: #ffffff;
+        --primary: #3b82f6;
+        --primary-foreground: #ffffff;
+        --secondary: #1f2937;
+        --secondary-foreground: #ffffff;
+        --muted: #1f2937;
+        --muted-foreground: #9ca3af;
+        --accent: #1f2937;
+        --accent-foreground: #ffffff;
+        --destructive: #ef4444;
+        --destructive-foreground: #ffffff;
+        --border: #1f2937;
+        --input: #1f2937;
+        --ring: #3b82f6;
+      }
+
       body {
         font-family: 'Inter', sans-serif;
-        background-color: #0A0A0A;
-      }
-      :root {
-        --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-        --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
-        --ease-snap: cubic-bezier(0.15, 0.85, 0.25, 1);
-        --ease-elastic: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        --dur-fast: 180ms;
-        --dur-base: 420ms;
-        --dur-slow: 900ms;
-        --dur-ultra: 1500ms;
-        
-        /* Expanded 2050 Color Palette */
-        --acc-cyan: #00F2FF;
-        --acc-purple: #8A2BE2;
-        --acc-pink: #FF006E;
-        --acc-green: #39FF14;
-        --acc-amber: #FFAA00;
-        --acc-violet: #7B2FFF;
-        --acc-blue: #0088FF;
-        
-        --text: #EAEAEA;
-        --text-muted: #A0A0A0;
-        --bg: #0A0A0A;
-        --bg-elevated: #1C1C1E;
-      }
-      h1, h2, h3, h4, h5, h6, [data-font-mono] {
-        font-family: 'IBM Plex Mono', monospace;
-      }
-      /* NOTE: Tailwind CDN doesn't process @apply here, so provide a fallback */
-      .cyber-gradient-text { 
-        background: linear-gradient(135deg, var(--acc-cyan), var(--acc-purple), var(--acc-pink));
-        background-size: 200% 200%;
-        -webkit-background-clip: text; 
-        background-clip: text; 
-        color: transparent;
-        animation: gradient-shift 8s ease infinite;
+        background-color: var(--background);
+        color: var(--foreground);
+        transition: background-color 0.3s ease, color 0.3s ease;
       }
       
-      @keyframes gradient-shift {
-        0%, 100% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-      }
-      
-      .holo-text { /* Enhanced holographic effect */
-        text-shadow:
-          0 0 10px rgba(0,242,255,0.5),
-          0 0 20px rgba(138,43,226,0.4),
-          0 0 40px rgba(138,43,226,0.2),
-          0 0 80px rgba(255,0,110,0.1),
-          0 0 4px rgba(255,255,255,0.3);
-        animation: holo-pulse 4s ease-in-out infinite;
-      }
-      
-      @keyframes holo-pulse {
-        0%, 100% { filter: brightness(1) contrast(1); }
-        50% { filter: brightness(1.2) contrast(1.1); }
-      }
-      
-      .glass-pane {
-        background: linear-gradient(135deg, 
-          rgba(28, 28, 30, 0.6) 0%, 
-          rgba(28, 28, 30, 0.4) 100%);
-        backdrop-filter: blur(16px) saturate(180%);
-        -webkit-backdrop-filter: blur(16px) saturate(180%);
+      .glass {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
         border: 1px solid rgba(255, 255, 255, 0.1);
-        box-shadow: 
-          0 8px 32px 0 rgba(0, 0, 0, 0.37),
-          inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
-      }
-      .scroll-container {
-        scroll-behavior: smooth;
-      }
-      /* simple z-index layers when not using tailwind utilities */
-      .layer-bg { z-index: 0; }
-      .layer-content { z-index: 10; }
-      .layer-float { z-index: 20; }
-      .layer-top { z-index: 30; }
-      
-      /* Reduced motion preference */
-      @media (prefers-reduced-motion: reduce) {
-        * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
-        .scroll-container { scroll-behavior: auto; }
       }
       
-      /* Enhanced animated gradients */
-      @keyframes gradientShift {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
+      .dark .glass {
+        background: rgba(0, 0, 0, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.05);
       }
       
-      .animated-gradient {
-        background: linear-gradient(
-          135deg, 
-          rgba(0,242,255,0.15), 
-          rgba(138,43,226,0.15), 
-          rgba(255,0,110,0.15),
-          rgba(0,242,255,0.15)
-        );
-        background-size: 400% 400%;
-        animation: gradientShift 15s var(--ease-in-out) infinite;
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
       }
-      
-      /* Magnetic button helpers */
-      .magnetic { 
-        position: relative; 
-        overflow: hidden; 
-        will-change: transform;
-        transform: translateZ(0);
+      ::-webkit-scrollbar-track {
+        background: transparent;
       }
-      .magnetic-inner { 
-        transition: transform var(--dur-base) var(--ease-out); 
-        will-change: transform;
-      }
-      
-      /* Glow effects */
-      .glow-cyan {
-        box-shadow: 0 0 20px rgba(0, 242, 255, 0.3),
-                    0 0 40px rgba(0, 242, 255, 0.1);
-      }
-      
-      .glow-purple {
-        box-shadow: 0 0 20px rgba(138, 43, 226, 0.3),
-                    0 0 40px rgba(138, 43, 226, 0.1);
-      }
-      
-      .glow-pink {
-        box-shadow: 0 0 20px rgba(255, 0, 110, 0.3),
-                    0 0 40px rgba(255, 0, 110, 0.1);
-      }
-      
-      /* Neon border animation */
-      @keyframes neon-border {
-        0%, 100% {
-          box-shadow: 0 0 5px var(--acc-cyan),
-                      0 0 10px var(--acc-cyan),
-                      0 0 20px var(--acc-cyan);
-        }
-        50% {
-          box-shadow: 0 0 10px var(--acc-purple),
-                      0 0 20px var(--acc-purple),
-                      0 0 40px var(--acc-purple);
-        }
-      }
-      
-      .neon-border {
-        animation: neon-border 3s ease-in-out infinite;
-      }
-      
-      /* Scanline effect */
-      @keyframes scanline {
-        0% { transform: translateY(-100%); }
-        100% { transform: translateY(100%); }
-      }
-      
-      .scanline::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 2px;
-        background: linear-gradient(90deg, 
-          transparent, 
-          rgba(0, 242, 255, 0.8), 
-          transparent);
-        animation: scanline 4s linear infinite;
-        pointer-events: none;
-      }
-      
-      /* Data stream effect */
-      @keyframes data-stream {
-        0% { 
-          transform: translateY(-100%) scaleY(0);
-          opacity: 0;
-        }
-        10% { 
-          opacity: 1;
-        }
-        90% {
-          opacity: 1;
-        }
-        100% { 
-          transform: translateY(100%) scaleY(1);
-          opacity: 0;
-        }
-      }
-      
-      /* Pixel perfect utilities */
-      .pixel-perfect {
-        image-rendering: pixelated;
-        image-rendering: -moz-crisp-edges;
-        image-rendering: crisp-edges;
-      }
-      
-      /* Advanced transforms */
-      .transform-3d {
-        transform-style: preserve-3d;
-        perspective: 1000px;
-      }
-       /* For Webkit browsers */
-      .scroll-container::-webkit-scrollbar {
-        width: 6px;
-      }
-      .scroll-container::-webkit-scrollbar-track {
-        background: #0A0A0A;
-      }
-      .scroll-container::-webkit-scrollbar-thumb {
-        background: #8A2BE2;
-        border-radius: 3px;
-      }
-      .scroll-container::-webkit-scrollbar-thumb:hover {
-        background: #00F2FF;
+      ::-webkit-scrollbar-thumb {
+        background: var(--muted-foreground);
+        border-radius: 4px;
+        opacity: 0.5;
       }
     </style>
   <script type="importmap">

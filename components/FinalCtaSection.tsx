@@ -8,7 +8,7 @@ const FinalCtaSection: React.FC<{ onApplyClick?: () => void }> = ({ onApplyClick
       <h2 data-font-mono className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-wider max-w-4xl mx-auto leading-tight">
         ARE YOU READY TO BUILD THE FUTURE?
       </h2>
-      <p className="mt-8 text-lg md:text-xl text-[#EAEAEA] max-w-2xl mx-auto">
+      <p className="mt-8 text-lg md:text-xl text-text max-w-2xl mx-auto">
         Our community is curated. We seek the builders, the dreamers, the disruptors. Only 8 spots. Your initiation awaits.
       </p>
       <div className="mt-10 sm:mt-12 group">

@@ -1,8 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useTheme } from './ThemeContext';
 
 const AdvancedCursor: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const { theme } = useTheme();
+  const themeRef = useRef(theme);
+
+  useEffect(() => {
+    themeRef.current = theme;
+  }, [theme]);
 
   useEffect(() => {
     // Only show on devices with fine pointer (not mobile)
@@ -27,6 +34,10 @@ const AdvancedCursor: React.FC = () => {
       mouse.x = e.clientX;
       mouse.y = e.clientY;
       
+      const isDark = themeRef.current === 'dark';
+      const hue1 = isDark ? 180 : 210;
+      const hue2 = isDark ? 280 : 260;
+
       // Emit particles on move
       if (Math.random() < 0.3) {
         particles.push({
@@ -35,7 +46,7 @@ const AdvancedCursor: React.FC = () => {
           vx: (Math.random() - 0.5) * 2,
           vy: (Math.random() - 0.5) * 2,
           life: 1,
-          hue: Math.random() < 0.5 ? 180 : 280 // Cyan or Purple
+          hue: Math.random() < 0.5 ? hue1 : hue2
         });
       }
     };
@@ -57,9 +68,15 @@ const AdvancedCursor: React.FC = () => {
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+      const isDark = themeRef.current === 'dark';
+
       // Draw cursor glow
       const gradient = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, 40);
-      gradient.addColorStop(0, isInteracting ? 'rgba(255, 0, 110, 0.4)' : 'rgba(0, 242, 255, 0.3)');
+      const glowColor = isInteracting
+          ? (isDark ? 'rgba(255, 0, 110, 0.4)' : 'rgba(255, 45, 85, 0.4)')
+          : (isDark ? 'rgba(0, 242, 255, 0.3)' : 'rgba(0, 122, 255, 0.3)');
+
+      gradient.addColorStop(0, glowColor);
       gradient.addColorStop(1, 'transparent');
       ctx.fillStyle = gradient;
       ctx.fillRect(mouse.x - 40, mouse.y - 40, 80, 80);
@@ -109,7 +126,7 @@ const AdvancedCursor: React.FC = () => {
     <canvas
       ref={canvasRef}
       className="fixed top-0 left-0 w-full h-full pointer-events-none z-50"
-      style={{ mixBlendMode: 'screen' }}
+      style={{ mixBlendMode: theme === 'dark' ? 'screen' : 'multiply' }}
     />
   );
 };

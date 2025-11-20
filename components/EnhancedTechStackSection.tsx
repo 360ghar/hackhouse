@@ -35,7 +35,7 @@ const EnhancedTechStackSection: React.FC = () => {
           {'<RESOURCE_STACK>'}
         </div>
 
-        <h2 data-font-mono className="text-4xl md:text-6xl font-bold text-white tracking-wider mb-6">
+        <h2 data-font-mono className="text-4xl md:text-6xl font-bold text-text tracking-wider mb-6">
           FOUNDER'S ARSENAL
           <br />
           <span className="cyber-gradient-text">UNLOCKED</span>
@@ -73,9 +73,9 @@ const EnhancedTechStackSection: React.FC = () => {
             animate={{
               scale: [1, 1.1, 1],
               boxShadow: [
-                '0 0 30px #00F2FF, 0 0 60px #8A2BE2',
-                '0 0 50px #00F2FF, 0 0 100px #8A2BE2',
-                '0 0 30px #00F2FF, 0 0 60px #8A2BE2',
+                '0 0 30px var(--acc-cyan), 0 0 60px var(--acc-purple)',
+                '0 0 50px var(--acc-cyan), 0 0 100px var(--acc-purple)',
+                '0 0 30px var(--acc-cyan), 0 0 60px var(--acc-purple)',
               ]
             }}
             transition={{ duration: 3, repeat: Infinity }}
@@ -121,7 +121,7 @@ const EnhancedTechStackSection: React.FC = () => {
         className="mt-12 p-6 glass-pane rounded-xl border border-cyan-400/30 max-w-3xl mx-auto"
       >
         <div className="font-mono text-sm text-cyan-400 mb-2">PROTOCOL NOTE:</div>
-        <p className="text-white">
+        <p className="text-text">
           All premium subscriptions are <span className="cyber-gradient-text font-bold">pre-configured</span> and ready for immediate deployment.
         </p>
       </motion.div>
@@ -150,9 +150,9 @@ const EnhancedTechStackSection: React.FC = () => {
           top: 50%; left: 50%;
           width: 60px; height: 60px;
           transform: translate(-50%, -50%);
-          background: radial-gradient(circle, #00F2FF, #8A2BE2 80%, #FF006E);
+          background: radial-gradient(circle, var(--acc-cyan), var(--acc-purple) 80%, var(--acc-pink));
           border-radius: 50%;
-          box-shadow: 0 0 30px #00F2FF, 0 0 60px #8A2BE2;
+          box-shadow: 0 0 30px var(--acc-cyan), 0 0 60px var(--acc-purple);
           will-change: transform, box-shadow;
         }
         .logo-orbit {
@@ -173,7 +173,7 @@ const EnhancedTechStackSection: React.FC = () => {
           padding: 10px 20px;
           border-radius: 10px;
           font-family: 'IBM Plex Mono', monospace;
-          color: white;
+          color: var(--text);
           font-size: 14px;
           transition: all 0.3s var(--ease-out);
           transform-origin: center;

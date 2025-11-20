@@ -19,7 +19,7 @@ const PlanCard: React.FC<{ title: string; price: string; points: string[]; index
   <HolographicCard delay={index * 0.2} glowColor={color} className="h-full">
     <div className="p-6 sm:p-8 h-full flex flex-col">
       <div className="flex items-baseline justify-between mb-6">
-        <h3 data-font-mono className="text-2xl font-bold text-white" style={{
+        <h3 data-font-mono className="text-2xl font-bold text-text" style={{
           background: `linear-gradient(135deg, ${color}, #ffffff)`,
           WebkitBackgroundClip: 'text',
           backgroundClip: 'text',
@@ -30,7 +30,7 @@ const PlanCard: React.FC<{ title: string; price: string; points: string[]; index
         <span className="text-gray-400 font-mono text-sm">{price}</span>
       </div>
       
-      <ul className="space-y-3 text-[#EAEAEA] flex-grow">
+      <ul className="space-y-3 text-text flex-grow">
         {points.map((p, i) => (
           <motion.li 
             key={p}
@@ -66,7 +66,7 @@ const Amenity: React.FC<{ label: string; icon: React.ReactNode; color: string; d
     whileInView={{ opacity: 1, scale: 1 }}
     viewport={{ once: true }}
     transition={{ delay }}
-    className="glass-pane rounded-lg p-4 flex items-center gap-3 border border-white/10 hover:border-white/30 transition-colors group"
+    className="glass-pane rounded-lg p-4 flex items-center gap-3  hover:border-text/30 transition-colors group"
   >
     <motion.div 
       style={{ color }}
@@ -75,7 +75,7 @@ const Amenity: React.FC<{ label: string; icon: React.ReactNode; color: string; d
     >
       {icon}
     </motion.div>
-    <span className="text-[#EAEAEA] group-hover:text-white transition-colors">{label}</span>
+    <span className="text-text group-hover:text-text transition-colors">{label}</span>
   </motion.div>
 );
 
@@ -116,7 +116,7 @@ const EnhancedCoWorkingSection: React.FC<Props> = ({ onGetDeskClick, onBookTourC
             {'<NEURAL_HUB_ACCESS>'}
           </div>
 
-          <h2 data-font-mono className="text-4xl md:text-6xl font-bold text-white tracking-wider mb-6">
+          <h2 data-font-mono className="text-4xl md:text-6xl font-bold text-text tracking-wider mb-6">
             CO-WORKING FROM
             <br />
             <span className="cyber-gradient-text">₹3,000/MONTH</span>
@@ -144,7 +144,7 @@ const EnhancedCoWorkingSection: React.FC<Props> = ({ onGetDeskClick, onBookTourC
               onClick={onBookTourClick}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 rounded-lg border-2 border-purple-500/50 text-white hover:border-purple-400 hover:bg-purple-500/10 transition font-bold"
+              className="px-8 py-4 rounded-lg border-2 border-purple-500/50 text-text hover:border-purple-400 hover:bg-purple-500/10 transition font-bold"
             >
               Request Site Visit
             </motion.button>
@@ -169,7 +169,7 @@ const EnhancedCoWorkingSection: React.FC<Props> = ({ onGetDeskClick, onBookTourC
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h3 data-font-mono className="text-3xl font-bold text-white mb-8">
+          <h3 data-font-mono className="text-3xl font-bold text-text mb-8">
             <span className="cyber-gradient-text">SYSTEM RESOURCES</span>
           </h3>
           

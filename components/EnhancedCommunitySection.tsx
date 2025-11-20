@@ -172,7 +172,7 @@ const EnhancedCommunitySection: React.FC = () => {
             {'<NEURAL_NETWORK>'}
           </div>
 
-          <h2 data-font-mono className="text-4xl md:text-6xl font-bold text-white tracking-wider mb-6">
+          <h2 data-font-mono className="text-4xl md:text-6xl font-bold text-text tracking-wider mb-6">
             FORGE CONNECTIONS
             <br />
             <span className="cyber-gradient-text">NOT CONTACTS</span>
@@ -196,7 +196,7 @@ const EnhancedCommunitySection: React.FC = () => {
                   >
                     {benefit.icon}
                   </motion.div>
-                  <p className="text-lg text-white flex-1">{benefit.text}</p>
+                  <p className="text-lg text-text flex-1">{benefit.text}</p>
                   <motion.div
                     className="w-2 h-2 rounded-full"
                     style={{ backgroundColor: benefit.color }}
@@ -216,7 +216,7 @@ const EnhancedCommunitySection: React.FC = () => {
             className="mt-8 p-6 glass-pane rounded-xl border border-purple-400/30"
           >
             <div className="font-mono text-sm text-purple-400 mb-2">NETWORK PROTOCOL:</div>
-            <p className="text-white">
+            <p className="text-text">
               Every resident is <span className="cyber-gradient-text font-bold">handpicked</span> for alignment, 
               ambition, and execution velocity.
             </p>

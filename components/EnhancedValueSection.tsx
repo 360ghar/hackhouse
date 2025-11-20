@@ -37,7 +37,7 @@ const ResourceCard: React.FC<{ icon: string; label: string; detail: string; inde
         >
           {icon}
         </motion.div>
-        <h3 className="text-lg font-bold text-white cyber-gradient-text mb-2">{label}</h3>
+        <h3 className="text-lg font-bold text-text cyber-gradient-text mb-2">{label}</h3>
         <p className="text-sm text-gray-400">{detail}</p>
       </div>
     </HolographicCard>
@@ -76,7 +76,7 @@ const EnhancedValueSection: React.FC = () => {
             {'<RESOURCE_ALLOCATION_MATRIX>'}
           </div>
           
-          <h2 data-font-mono className="text-4xl md:text-6xl leading-tight font-bold text-white tracking-wider mb-6">
+          <h2 data-font-mono className="text-4xl md:text-6xl leading-tight font-bold text-text tracking-wider mb-6">
             THE ₹30K PROTOCOL
           </h2>
           
@@ -86,7 +86,7 @@ const EnhancedValueSection: React.FC = () => {
             <div className="h-px w-24 bg-gradient-to-r from-transparent via-purple-400 to-transparent"></div>
           </div>
 
-          <p className="text-lg md:text-xl leading-relaxed text-[#EAEAEA]">
+          <p className="text-lg md:text-xl leading-relaxed text-text">
             For ₹30k/month, access an entire <span className="cyber-gradient-text font-bold">optimization layer</span>. 
             We've compressed living, working, and building into a single, streamlined <span className="text-cyan-400">data pipeline</span>.
           </p>
