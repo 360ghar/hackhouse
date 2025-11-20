@@ -11,6 +11,15 @@ interface AnimatedMetricProps {
   animate?: boolean;
 }
 
+const getColorVar = (c: string) => {
+  const map: Record<string, { val: string; rgb: string }> = {
+    '#00F2FF': { val: 'var(--acc-cyan)', rgb: 'var(--acc-cyan-rgb)' },
+    '#8A2BE2': { val: 'var(--acc-purple)', rgb: 'var(--acc-purple-rgb)' },
+    '#FF006E': { val: 'var(--acc-pink)', rgb: 'var(--acc-pink-rgb)' },
+  };
+  return map[c] || { val: c, rgb: '' };
+};
+
 const AnimatedMetric: React.FC<AnimatedMetricProps> = ({
   value,
   label,
@@ -23,6 +32,7 @@ const AnimatedMetric: React.FC<AnimatedMetricProps> = ({
   const [displayValue, setDisplayValue] = useState(0);
   const [inView, setInView] = useState(false);
   const elementRef = useRef<HTMLDivElement>(null);
+  const { val: colorVal, rgb: colorRgb } = getColorVar(color);
 
   useEffect(() => {
     if (!elementRef.current) return;
@@ -78,17 +88,17 @@ const AnimatedMetric: React.FC<AnimatedMetricProps> = ({
       {/* Glow background */}
       <div
         className="absolute -inset-4 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"
-        style={{ backgroundColor: `${color}20` }}
+        style={{ backgroundColor: colorRgb ? `rgba(${colorRgb}, 0.12)` : colorVal }}
       />
 
       {/* Content */}
-      <div className="relative glass-pane rounded-xl p-6 border border-white/10 text-center">
+      <div className="relative glass-pane rounded-xl p-6 text-center">
         {/* Value */}
         <div
           className="text-4xl md:text-5xl font-bold mb-2"
           style={{
-            color: color,
-            textShadow: `0 0 20px ${color}66`,
+            color: colorVal,
+            textShadow: colorRgb ? `0 0 20px rgba(${colorRgb}, 0.4)` : `0 0 20px ${colorVal}`,
           }}
         >
           {prefix}
@@ -106,19 +116,19 @@ const AnimatedMetric: React.FC<AnimatedMetricProps> = ({
           className="absolute bottom-0 left-0 h-1 transition-all duration-1000 ease-out"
           style={{
             width: inView ? '100%' : '0%',
-            backgroundColor: color,
-            boxShadow: `0 0 10px ${color}`,
+            backgroundColor: colorVal,
+            boxShadow: `0 0 10px ${colorVal}`,
           }}
         />
 
         {/* Corner accents */}
         <div
           className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 opacity-50"
-          style={{ borderColor: color }}
+          style={{ borderColor: colorVal }}
         />
         <div
           className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 opacity-50"
-          style={{ borderColor: color }}
+          style={{ borderColor: colorVal }}
         />
       </div>
     </motion.div>

@@ -42,13 +42,34 @@
     <meta name="ICBM" content="28.4595, 77.0266">
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              bg: 'var(--bg)',
+              'bg-elevated': 'var(--bg-elevated)',
+              text: 'var(--text)',
+              'text-muted': 'var(--text-muted)',
+              cyan: { 400: 'var(--acc-cyan)' },
+              purple: { 400: 'var(--acc-purple)' },
+              pink: { 400: 'var(--acc-pink)' },
+              green: { 400: 'var(--acc-green)' },
+            }
+          }
+        }
+      }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
       body {
         font-family: 'Inter', sans-serif;
-        background-color: #0A0A0A;
+        background-color: var(--bg);
+        color: var(--text);
+        transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       }
       :root {
         --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
@@ -62,9 +83,13 @@
         
         /* Expanded 2050 Color Palette */
         --acc-cyan: #00F2FF;
+        --acc-cyan-rgb: 0, 242, 255;
         --acc-purple: #8A2BE2;
+        --acc-purple-rgb: 138, 43, 226;
         --acc-pink: #FF006E;
+        --acc-pink-rgb: 255, 0, 110;
         --acc-green: #39FF14;
+        --acc-green-rgb: 57, 255, 20;
         --acc-amber: #FFAA00;
         --acc-violet: #7B2FFF;
         --acc-blue: #0088FF;
@@ -73,6 +98,35 @@
         --text-muted: #A0A0A0;
         --bg: #0A0A0A;
         --bg-elevated: #1C1C1E;
+
+        --glass-start: rgba(28, 28, 30, 0.6);
+        --glass-end: rgba(28, 28, 30, 0.4);
+        --glass-border: rgba(255, 255, 255, 0.1);
+        --glass-shadow: rgba(0, 0, 0, 0.37);
+        --glass-shine: rgba(255, 255, 255, 0.05);
+      }
+      :root.light {
+        --bg: #F5F5F7;
+        --bg-elevated: #FFFFFF;
+        --text: #1D1D1F;
+        --text-muted: #86868B;
+        --acc-cyan: #007AFF;
+        --acc-cyan-rgb: 0, 122, 255;
+        --acc-purple: #5856D6;
+        --acc-purple-rgb: 88, 86, 214;
+        --acc-pink: #FF2D55;
+        --acc-pink-rgb: 255, 45, 85;
+        --acc-green: #34C759;
+        --acc-green-rgb: 52, 199, 89;
+        --acc-amber: #FF9500;
+        --acc-violet: #AF52DE;
+        --acc-blue: #007AFF;
+
+        --glass-start: rgba(255, 255, 255, 0.6);
+        --glass-end: rgba(255, 255, 255, 0.4);
+        --glass-border: rgba(0, 0, 0, 0.05);
+        --glass-shadow: rgba(0, 0, 0, 0.1);
+        --glass-shine: rgba(255, 255, 255, 0.5);
       }
       h1, h2, h3, h4, h5, h6, [data-font-mono] {
         font-family: 'IBM Plex Mono', monospace;
@@ -94,10 +148,10 @@
       
       .holo-text { /* Enhanced holographic effect */
         text-shadow:
-          0 0 10px rgba(0,242,255,0.5),
-          0 0 20px rgba(138,43,226,0.4),
-          0 0 40px rgba(138,43,226,0.2),
-          0 0 80px rgba(255,0,110,0.1),
+          0 0 10px rgba(var(--acc-cyan-rgb), 0.5),
+          0 0 20px rgba(var(--acc-purple-rgb), 0.4),
+          0 0 40px rgba(var(--acc-purple-rgb), 0.2),
+          0 0 80px rgba(var(--acc-pink-rgb), 0.1),
           0 0 4px rgba(255,255,255,0.3);
         animation: holo-pulse 4s ease-in-out infinite;
       }
@@ -108,15 +162,11 @@
       }
       
       .glass-pane {
-        background: linear-gradient(135deg, 
-          rgba(28, 28, 30, 0.6) 0%, 
-          rgba(28, 28, 30, 0.4) 100%);
+        background: linear-gradient(135deg, var(--glass-start) 0%, var(--glass-end) 100%);
         backdrop-filter: blur(16px) saturate(180%);
         -webkit-backdrop-filter: blur(16px) saturate(180%);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        box-shadow: 
-          0 8px 32px 0 rgba(0, 0, 0, 0.37),
-          inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--glass-border);
+        box-shadow: 0 8px 32px 0 var(--glass-shadow), inset 0 1px 0 0 var(--glass-shine);
       }
       .scroll-container {
         scroll-behavior: smooth;
@@ -143,10 +193,10 @@
       .animated-gradient {
         background: linear-gradient(
           135deg, 
-          rgba(0,242,255,0.15), 
-          rgba(138,43,226,0.15), 
-          rgba(255,0,110,0.15),
-          rgba(0,242,255,0.15)
+          rgba(var(--acc-cyan-rgb), 0.15),
+          rgba(var(--acc-purple-rgb), 0.15),
+          rgba(var(--acc-pink-rgb), 0.15),
+          rgba(var(--acc-cyan-rgb), 0.15)
         );
         background-size: 400% 400%;
         animation: gradientShift 15s var(--ease-in-out) infinite;
@@ -166,18 +216,18 @@
       
       /* Glow effects */
       .glow-cyan {
-        box-shadow: 0 0 20px rgba(0, 242, 255, 0.3),
-                    0 0 40px rgba(0, 242, 255, 0.1);
+        box-shadow: 0 0 20px rgba(var(--acc-cyan-rgb), 0.3),
+                    0 0 40px rgba(var(--acc-cyan-rgb), 0.1);
       }
       
       .glow-purple {
-        box-shadow: 0 0 20px rgba(138, 43, 226, 0.3),
-                    0 0 40px rgba(138, 43, 226, 0.1);
+        box-shadow: 0 0 20px rgba(var(--acc-purple-rgb), 0.3),
+                    0 0 40px rgba(var(--acc-purple-rgb), 0.1);
       }
       
       .glow-pink {
-        box-shadow: 0 0 20px rgba(255, 0, 110, 0.3),
-                    0 0 40px rgba(255, 0, 110, 0.1);
+        box-shadow: 0 0 20px rgba(var(--acc-pink-rgb), 0.3),
+                    0 0 40px rgba(var(--acc-pink-rgb), 0.1);
       }
       
       /* Neon border animation */
@@ -213,7 +263,7 @@
         height: 2px;
         background: linear-gradient(90deg, 
           transparent, 
-          rgba(0, 242, 255, 0.8), 
+          rgba(var(--acc-cyan-rgb), 0.8),
           transparent);
         animation: scanline 4s linear infinite;
         pointer-events: none;

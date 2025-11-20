@@ -125,13 +125,13 @@ const HeroSection: React.FC<{ onApplyClick?: () => void; onCoworkingClick?: () =
             <motion.span 
               className="block holo-text relative"
               style={{ 
-                textShadow: '0 0 30px #00F2FF, 0 0 60px #00F2FF, 0 0 90px #00F2FF',
+                textShadow: '0 0 30px var(--acc-cyan), 0 0 60px var(--acc-cyan), 0 0 90px var(--acc-cyan)',
               }}
               animate={{
                 textShadow: [
-                  '0 0 30px #00F2FF, 0 0 60px #00F2FF, 0 0 90px #00F2FF',
-                  '0 0 40px #00F2FF, 0 0 80px #00F2FF, 0 0 120px #00F2FF',
-                  '0 0 30px #00F2FF, 0 0 60px #00F2FF, 0 0 90px #00F2FF',
+                  '0 0 30px var(--acc-cyan), 0 0 60px var(--acc-cyan), 0 0 90px var(--acc-cyan)',
+                  '0 0 40px var(--acc-cyan), 0 0 80px var(--acc-cyan), 0 0 120px var(--acc-cyan)',
+                  '0 0 30px var(--acc-cyan), 0 0 60px var(--acc-cyan), 0 0 90px var(--acc-cyan)',
                 ]
               }}
               transition={{ duration: 3, repeat: Infinity }}
@@ -165,7 +165,7 @@ const HeroSection: React.FC<{ onApplyClick?: () => void; onCoworkingClick?: () =
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 3.5 }}
-            className="mt-8 text-lg md:text-xl text-[#EAEAEA] max-w-3xl mx-auto"
+            className="mt-8 text-lg md:text-xl text-text max-w-3xl mx-auto"
           >
             <FluidText 
               text="Welcome to HackHouse Protocol — Neural Network for Builders in Gurgaon Sector 50" 
@@ -184,9 +184,9 @@ const HeroSection: React.FC<{ onApplyClick?: () => void; onCoworkingClick?: () =
             <button 
               ref={btnRef} 
               onClick={onApplyClick} 
-              className="interactive magnetic relative group px-10 py-5 text-lg font-bold text-white uppercase overflow-hidden transition-all duration-300 border border-cyan-400/50 hover:border-cyan-400"
+              className="interactive magnetic relative group px-10 py-5 text-lg font-bold text-text group-hover:text-white uppercase overflow-hidden transition-all duration-300 border border-cyan-400/50 hover:border-cyan-400"
             >
-              <span className="absolute inset-0 bg-gradient-to-r from-[#00F2FF] to-[#8A2BE2] transform -skew-x-12 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+              <span className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-purple-400 transform -skew-x-12 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
               <span className="relative magnetic-inner flex items-center gap-2">
                 <span className="text-cyan-400 group-hover:text-white transition-colors">{'>>>'}</span>
                 Initialize Connection
@@ -209,7 +209,7 @@ const HeroSection: React.FC<{ onApplyClick?: () => void; onCoworkingClick?: () =
             {/* Secondary CTA */}
             <button 
               onClick={onCoworkingClick}
-              className="relative group px-10 py-5 text-lg font-bold text-white uppercase transition-all duration-300 border border-purple-500/50 hover:border-purple-400"
+              className="relative group px-10 py-5 text-lg font-bold text-text uppercase transition-all duration-300 border border-purple-500/50 hover:border-purple-400"
             >
               <span className="relative flex items-center gap-2">
                 Neural Hub Access
@@ -254,7 +254,7 @@ const HeroSection: React.FC<{ onApplyClick?: () => void; onCoworkingClick?: () =
         <style>{`
           @keyframes fadeIn { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
           .animate-fade-in { animation: fadeIn 1s ease-out forwards; opacity: 0; }
-          @keyframes fadeInGlow { 0% { opacity: 0; text-shadow: 0 0 0px #00F2FF; } 100% { opacity: 1; text-shadow: 0 0 15px #00F2FF; } }
+          @keyframes fadeInGlow { 0% { opacity: 0; text-shadow: 0 0 0px var(--acc-cyan); } 100% { opacity: 1; text-shadow: 0 0 15px var(--acc-cyan); } }
           .animate-fade-in-glow { animation: fadeInGlow 1s ease-out forwards; opacity: 0; }
         `}</style>
       </header>

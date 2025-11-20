@@ -10,12 +10,12 @@ type Props = {
 };
 
 const FieldLabel: React.FC<{ htmlFor: string; children: React.ReactNode }> = ({ htmlFor, children }) => (
-  <label htmlFor={htmlFor} className="block text-sm font-medium text-[#EAEAEA]/80 mb-2 tracking-wide" data-font-mono>
+  <label htmlFor={htmlFor} className="block text-sm font-medium text-text-muted mb-2 tracking-wide" data-font-mono>
     {children}
   </label>
 );
 
-const InputBase = "w-full rounded-lg bg-[#121212]/70 border border-white/10 text-[#EAEAEA] placeholder-white/30 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[var(--acc-cyan)]/70 focus:border-[var(--acc-cyan)]/40 transition";
+const InputBase = "w-full rounded-lg bg-black/5 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-text placeholder-text-muted px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[var(--acc-cyan)]/70 focus:border-[var(--acc-cyan)]/40 transition";
 
 const ApplicationFormModal: React.FC<Props> = ({ open, onClose, mode = 'coliving' }) => {
   const [state, handleSubmit] = useForm('xdkljezv');
@@ -61,17 +61,17 @@ const ApplicationFormModal: React.FC<Props> = ({ open, onClose, mode = 'coliving
         aria-labelledby="application-title"
         className="absolute inset-0 flex items-center justify-center p-4"
       >
-        <div ref={dialogRef} className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto overscroll-contain glass-pane rounded-2xl border border-white/10 shadow-2xl">
+        <div ref={dialogRef} className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto overscroll-contain glass-pane rounded-2xl  shadow-2xl">
           {/* Top accent bar */}
           <div className="h-1 w-full bg-gradient-to-r from-[var(--acc-cyan)] to-[var(--acc-purple)]" />
 
           <div className="p-6 md:p-8">
             <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-6">
               <div className="min-w-0">
-                <h3 id="application-title" data-font-mono className="text-2xl md:text-3xl font-bold text-white tracking-wide">
+                <h3 id="application-title" data-font-mono className="text-2xl md:text-3xl font-bold text-text tracking-wide">
                   {mode === 'coworking' ? 'GET A DESK — COWORKING' : mode === 'tour' ? 'BOOK A TOUR' : 'APPLY FOR INITIATION'}
                 </h3>
-                <p className="text-sm text-[#EAEAEA]/70 mt-2 max-w-prose">
+                <p className="text-sm text-text-muted mt-2 max-w-prose">
                   {mode === 'coworking'
                     ? 'Co-working from ₹3,000/mo. Join the founders’ floor with fast Wi‑Fi and events.'
                     : mode === 'tour'
@@ -82,7 +82,7 @@ const ApplicationFormModal: React.FC<Props> = ({ open, onClose, mode = 'coliving
               <button
                 onClick={onClose}
                 aria-label="Close"
-                className="sm:ml-4 self-start text-white/70 hover:text-white transition"
+                className="sm:ml-4 self-start text-text-muted hover:text-text transition"
               >
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M6 6L18 18M6 18L18 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
@@ -97,9 +97,9 @@ const ApplicationFormModal: React.FC<Props> = ({ open, onClose, mode = 'coliving
                     <path d="M20 6L9 17L4 12" stroke="black" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
-                <h4 data-font-mono className="text-2xl font-bold text-white">Thanks for applying!</h4>
-                <p className="text-[#EAEAEA]/70 mt-2">We’ll review and get back soon.</p>
-                <button onClick={onClose} className="mt-8 px-6 py-3 rounded-lg bg-gradient-to-r from-[var(--acc-cyan)] to-[var(--acc-purple)] text-black font-semibold">
+                <h4 data-font-mono className="text-2xl font-bold text-text">Thanks for applying!</h4>
+                <p className="text-text-muted mt-2">We’ll review and get back soon.</p>
+                <button onClick={onClose} className="mt-8 px-6 py-3 rounded-lg bg-gradient-to-r from-[var(--acc-cyan)] to-[var(--acc-purple)] text-white dark:text-black font-semibold">
                   Close
                 </button>
               </div>
@@ -186,7 +186,7 @@ const ApplicationFormModal: React.FC<Props> = ({ open, onClose, mode = 'coliving
                   <button
                     type="button"
                     onClick={onClose}
-                    className="px-5 py-3 rounded-lg border border-white/15 text-[#EAEAEA]/80 hover:text-white hover:border-white/30 transition"
+                    className="px-5 py-3 rounded-lg border border-white/15 dark:border-white/15 border-black/10 text-text-muted hover:text-text hover:border-black/30 dark:hover:border-white/30 transition"
                   >
                     Cancel
                   </button>
@@ -194,7 +194,7 @@ const ApplicationFormModal: React.FC<Props> = ({ open, onClose, mode = 'coliving
                   <button
                     type="submit"
                     disabled={state.submitting}
-                    className="relative group px-8 py-3 rounded-lg font-semibold text-black overflow-hidden"
+                    className="relative group px-8 py-3 rounded-lg font-semibold text-white dark:text-black overflow-hidden"
                   >
                     <span className="absolute inset-0 bg-gradient-to-r from-[var(--acc-cyan)] to-[var(--acc-purple)] group-hover:opacity-90 transition" />
                     <span className="relative flex items-center gap-2">

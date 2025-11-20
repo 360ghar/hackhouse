@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import EnhancedBackgroundCanvas from './components/EnhancedBackgroundCanvas';
 import AdvancedCursor from './components/AdvancedCursor';
 import { Helmet } from 'react-helmet-async';
+import { ThemeProvider } from './components/ThemeContext';
+import ThemeToggle from './components/ThemeToggle';
 import HeroSection from './components/HeroSection';
 import EnhancedValueSection from './components/EnhancedValueSection';
 import EnhancedTechStackSection from './components/EnhancedTechStackSection';
@@ -21,19 +23,22 @@ const App: React.FC = () => {
   const [offer, setOffer] = useState<'coliving' | 'coworking'>('coliving');
 
   return (
-    <div id="scrollRoot" className="bg-[#0A0A0A] text-[#EAEAEA] scroll-container h-screen overflow-y-auto overflow-x-hidden">
-      <Helmet>
-        <title>HackHouse Protocol v4.7 - Neural Network for AI Builders | Gurgaon</title>
-        <meta name="description" content="HackHouse Protocol: Elite neural network for AI builders. Curated residency in Gurgaon with 1Gbps neural link, quantum living pods, and high-velocity founder community. Only 8 slots available." />
-      </Helmet>
-      
-      {/* Enhanced background layers */}
-      <EnhancedBackgroundCanvas />
-      
-      {/* Advanced cursor effects */}
-      <AdvancedCursor />
-      
-      <div className="relative z-10">
+    <ThemeProvider>
+      <div id="scrollRoot" className="bg-bg text-text scroll-container h-screen overflow-y-auto overflow-x-hidden transition-colors duration-500">
+        <Helmet>
+          <title>HackHouse Protocol v4.7 - Neural Network for AI Builders | Gurgaon</title>
+          <meta name="description" content="HackHouse Protocol: Elite neural network for AI builders. Curated residency in Gurgaon with 1Gbps neural link, quantum living pods, and high-velocity founder community. Only 8 slots available." />
+        </Helmet>
+
+        <ThemeToggle />
+
+        {/* Enhanced background layers */}
+        <EnhancedBackgroundCanvas />
+
+        {/* Advanced cursor effects */}
+        <AdvancedCursor />
+
+        <div className="relative z-10">
         <HeroSection
           onApplyClick={() => { setModalMode('coliving'); setApplyOpen(true); }}
           onCoworkingClick={() => { setModalMode('coworking'); setApplyOpen(true); }}
@@ -75,8 +80,9 @@ const App: React.FC = () => {
         </footer>
       </div>
       
-      <ApplicationFormModal open={applyOpen} onClose={() => setApplyOpen(false)} mode={modalMode} />
-    </div>
+        <ApplicationFormModal open={applyOpen} onClose={() => setApplyOpen(false)} mode={modalMode} />
+      </div>
+    </ThemeProvider>
   );
 };
 

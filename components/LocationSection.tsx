@@ -159,7 +159,7 @@ const LocationSection: React.FC = () => {
             }
         `}</style>
       </div>
-      <p className="text-lg text-[#EAEAEA] max-w-2xl mx-auto">
+      <p className="text-lg text-text max-w-2xl mx-auto">
         Located in a serene, green neighborhood, yet minutes away from the hustle of Gurgaon's top tech parks and social hubs. The perfect launchpad.
       </p>
     </Section>

@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useTheme } from './ThemeContext';
 
 interface HolographicCardProps {
   children: React.ReactNode;
@@ -7,6 +8,15 @@ interface HolographicCardProps {
   glowColor?: string;
   delay?: number;
 }
+
+const getColorVar = (c: string) => {
+  const map: Record<string, { val: string; rgb: string }> = {
+    '#00F2FF': { val: 'var(--acc-cyan)', rgb: 'var(--acc-cyan-rgb)' },
+    '#8A2BE2': { val: 'var(--acc-purple)', rgb: 'var(--acc-purple-rgb)' },
+    '#FF006E': { val: 'var(--acc-pink)', rgb: 'var(--acc-pink-rgb)' },
+  };
+  return map[c] || { val: c, rgb: '' };
+};
 
 const HolographicCard: React.FC<HolographicCardProps> = ({ 
   children, 
@@ -17,6 +27,8 @@ const HolographicCard: React.FC<HolographicCardProps> = ({
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
+  const { theme } = useTheme();
+  const { val: colorVal, rgb: colorRgb } = getColorVar(glowColor);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return;
@@ -48,23 +60,27 @@ const HolographicCard: React.FC<HolographicCardProps> = ({
       <div 
         className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
         style={{
-          background: `radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, ${glowColor}33, transparent 60%)`,
+          background: colorRgb
+            ? `radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, rgba(${colorRgb}, 0.2), transparent 60%)`
+            : `radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, ${colorVal}33, transparent 60%)`,
         }}
       />
       
       {/* RGB Split effect */}
       <div 
-        className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-30 transition-opacity duration-300 pointer-events-none mix-blend-screen"
+        className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-30 transition-opacity duration-300 pointer-events-none"
         style={{
-          background: `radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, #FF006E 0%, transparent 50%)`,
+          background: `radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, var(--acc-pink) 0%, transparent 50%)`,
           transform: 'translate(-1px, -1px)',
+          mixBlendMode: theme === 'dark' ? 'screen' : 'multiply'
         }}
       />
       <div 
-        className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-30 transition-opacity duration-300 pointer-events-none mix-blend-screen"
+        className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-30 transition-opacity duration-300 pointer-events-none"
         style={{
-          background: `radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, #00F2FF 0%, transparent 50%)`,
+          background: `radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, var(--acc-cyan) 0%, transparent 50%)`,
           transform: 'translate(1px, 1px)',
+          mixBlendMode: theme === 'dark' ? 'screen' : 'multiply'
         }}
       />
       
@@ -72,7 +88,9 @@ const HolographicCard: React.FC<HolographicCardProps> = ({
       <div 
         className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-10 transition-opacity duration-300 pointer-events-none overflow-hidden"
         style={{
-          backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 242, 255, 0.1) 2px, rgba(0, 242, 255, 0.1) 4px)',
+          backgroundImage: theme === 'dark'
+            ? 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 242, 255, 0.1) 2px, rgba(0, 242, 255, 0.1) 4px)'
+            : 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 0, 0, 0.05) 2px, rgba(0, 0, 0, 0.05) 4px)',
         }}
       />
       
@@ -80,13 +98,13 @@ const HolographicCard: React.FC<HolographicCardProps> = ({
       <div 
         className="absolute -inset-[1px] rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
         style={{
-          background: `linear-gradient(${Math.atan2(mousePosition.y - 50, mousePosition.x - 50) * 180 / Math.PI}deg, ${glowColor}, #8A2BE2, ${glowColor})`,
+          background: `linear-gradient(${Math.atan2(mousePosition.y - 50, mousePosition.x - 50) * 180 / Math.PI}deg, ${colorVal}, var(--acc-purple), ${colorVal})`,
           filter: 'blur(4px)',
         }}
       />
       
       {/* Main content */}
-      <div className="relative glass-pane rounded-xl overflow-hidden border border-white/10">
+      <div className="relative glass-pane rounded-xl overflow-hidden">
         {children}
       </div>
       

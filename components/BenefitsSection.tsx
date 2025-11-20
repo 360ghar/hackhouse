@@ -78,7 +78,7 @@ const BenefitCard: React.FC<{ title: string; text: string; icon: string; color: 
         </h3>
 
         {/* Description */}
-        <p className="text-[#EAEAEA] leading-relaxed flex-grow">{text}</p>
+        <p className="text-text leading-relaxed flex-grow">{text}</p>
 
         {/* Status bar */}
         <div className="mt-6 pt-4 border-t border-white/10">

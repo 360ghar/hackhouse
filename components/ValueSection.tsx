@@ -75,7 +75,7 @@ const ValueSection: React.FC = () => {
                 THE 30K EQUATION
             </h2>
             <div className="h-1 w-24 my-6 bg-gradient-to-r from-[#00F2FF] to-[#8A2BE2]"></div>
-            <p className="text-lg leading-relaxed text-[#EAEAEA]">
+            <p className="text-lg leading-relaxed text-text">
                 For ₹30k/month, you don't just get a room. You get an entire ecosystem. We've collapsed the cost of living, working, and building into a single, optimized data stream.
             </p>
         </div>

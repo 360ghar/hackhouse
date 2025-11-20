@@ -1,7 +1,14 @@
 import React, { useRef, useEffect } from 'react';
+import { useTheme } from './ThemeContext';
 
 const EnhancedBackgroundCanvas: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const { theme } = useTheme();
+  const themeRef = useRef(theme);
+
+  useEffect(() => {
+    themeRef.current = theme;
+  }, [theme]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -101,22 +108,28 @@ const EnhancedBackgroundCanvas: React.FC = () => {
 
         // Glow effect
         const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, finalSize * 4);
+        const isDark = themeRef.current === 'dark';
         
+        // Colors
+        const rgbPrimary = isDark ? '0, 242, 255' : '0, 122, 255';
+        const rgbSecondary = isDark ? '138, 43, 226' : '88, 86, 214';
+        const rgbQuantum = isDark ? '255, 0, 110' : '255, 45, 85';
+
         switch (this.type) {
           case 'primary':
-            gradient.addColorStop(0, `rgba(0, 242, 255, ${0.6 + this.energy})`);
-            gradient.addColorStop(0.5, `rgba(0, 242, 255, ${0.2 + this.energy * 0.5})`);
-            gradient.addColorStop(1, 'rgba(0, 242, 255, 0)');
+            gradient.addColorStop(0, `rgba(${rgbPrimary}, ${0.6 + this.energy})`);
+            gradient.addColorStop(0.5, `rgba(${rgbPrimary}, ${0.2 + this.energy * 0.5})`);
+            gradient.addColorStop(1, `rgba(${rgbPrimary}, 0)`);
             break;
           case 'secondary':
-            gradient.addColorStop(0, `rgba(138, 43, 226, ${0.6 + this.energy})`);
-            gradient.addColorStop(0.5, `rgba(138, 43, 226, ${0.2 + this.energy * 0.5})`);
-            gradient.addColorStop(1, 'rgba(138, 43, 226, 0)');
+            gradient.addColorStop(0, `rgba(${rgbSecondary}, ${0.6 + this.energy})`);
+            gradient.addColorStop(0.5, `rgba(${rgbSecondary}, ${0.2 + this.energy * 0.5})`);
+            gradient.addColorStop(1, `rgba(${rgbSecondary}, 0)`);
             break;
           case 'quantum':
-            gradient.addColorStop(0, `rgba(255, 0, 110, ${0.8 + this.energy})`);
-            gradient.addColorStop(0.5, `rgba(255, 0, 110, ${0.3 + this.energy * 0.5})`);
-            gradient.addColorStop(1, 'rgba(255, 0, 110, 0)');
+            gradient.addColorStop(0, `rgba(${rgbQuantum}, ${0.8 + this.energy})`);
+            gradient.addColorStop(0.5, `rgba(${rgbQuantum}, ${0.3 + this.energy * 0.5})`);
+            gradient.addColorStop(1, `rgba(${rgbQuantum}, 0)`);
             break;
         }
 
@@ -126,14 +139,18 @@ const EnhancedBackgroundCanvas: React.FC = () => {
         ctx.fill();
 
         // Core
-        ctx.fillStyle = this.type === 'quantum' ? '#FF006E' : this.type === 'primary' ? '#00F2FF' : '#8A2BE2';
+        const cQuantum = isDark ? '#FF006E' : '#FF2D55';
+        const cPrimary = isDark ? '#00F2FF' : '#007AFF';
+        const cSecondary = isDark ? '#8A2BE2' : '#5856D6';
+
+        ctx.fillStyle = this.type === 'quantum' ? cQuantum : this.type === 'primary' ? cPrimary : cSecondary;
         ctx.beginPath();
         ctx.arc(this.x, this.y, finalSize, 0, Math.PI * 2);
         ctx.fill();
 
         // Energy ring for quantum nodes
         if (this.type === 'quantum' && this.energy > 0.3) {
-          ctx.strokeStyle = `rgba(255, 0, 110, ${this.energy})`;
+          ctx.strokeStyle = `rgba(${rgbQuantum}, ${this.energy})`;
           ctx.lineWidth = 2;
           ctx.beginPath();
           ctx.arc(this.x, this.y, finalSize * 6, 0, Math.PI * 2);
@@ -160,7 +177,10 @@ const EnhancedBackgroundCanvas: React.FC = () => {
         this.targetY = targetY;
         this.progress = 0;
         this.speed = 0.01 + Math.random() * 0.02;
-        this.color = Math.random() < 0.5 ? '#00F2FF' : '#8A2BE2';
+        const isDark = themeRef.current === 'dark';
+        this.color = Math.random() < 0.5
+          ? (isDark ? '#00F2FF' : '#007AFF')
+          : (isDark ? '#8A2BE2' : '#5856D6');
         this.particles = [];
         
         for (let i = 0; i < 5; i++) {
@@ -239,12 +259,17 @@ const EnhancedBackgroundCanvas: React.FC = () => {
           
           // Determine line color based on node types
           let color1, color2;
+          const isDark = themeRef.current === 'dark';
+          const rgbPrimary = isDark ? '0, 242, 255' : '0, 122, 255';
+          const rgbSecondary = isDark ? '138, 43, 226' : '88, 86, 214';
+          const rgbQuantum = isDark ? '255, 0, 110' : '255, 45, 85';
+
           if (nodes[a].type === 'quantum' || nodes[b].type === 'quantum') {
-            color1 = `rgba(255, 0, 110, ${opacity + energyBoost * 0.5})`;
-            color2 = `rgba(138, 43, 226, ${opacity + energyBoost * 0.5})`;
+            color1 = `rgba(${rgbQuantum}, ${opacity + energyBoost * 0.5})`;
+            color2 = `rgba(${rgbSecondary}, ${opacity + energyBoost * 0.5})`;
           } else {
-            color1 = `rgba(0, 242, 255, ${opacity + energyBoost * 0.5})`;
-            color2 = `rgba(138, 43, 226, ${opacity + energyBoost * 0.5})`;
+            color1 = `rgba(${rgbPrimary}, ${opacity + energyBoost * 0.5})`;
+            color2 = `rgba(${rgbSecondary}, ${opacity + energyBoost * 0.5})`;
           }
           
           const gradient = ctx.createLinearGradient(nodes[a].x, nodes[a].y, nodes[b].x, nodes[b].y);
@@ -273,11 +298,15 @@ const EnhancedBackgroundCanvas: React.FC = () => {
       const currentTime = (Date.now() - startTime) / 1000;
       
       // Background with subtle vignette
+      const isDark = themeRef.current === 'dark';
       const vignette = 15 + scrollRatio * 25;
       const grd = ctx.createRadialGradient(width/2, height/2, 0, width/2, height/2, Math.max(width, height));
-      grd.addColorStop(0, 'rgba(10, 10, 10, 0)');
-      grd.addColorStop(1, `rgba(10, 10, 10, ${vignette / 255})`);
-      ctx.fillStyle = 'rgba(10, 10, 10, 0.4)';
+
+      const bgRgb = isDark ? '10, 10, 10' : '245, 245, 247';
+
+      grd.addColorStop(0, `rgba(${bgRgb}, 0)`);
+      grd.addColorStop(1, `rgba(${bgRgb}, ${vignette / 255})`);
+      ctx.fillStyle = `rgba(${bgRgb}, 0.4)`;
       ctx.fillRect(0, 0, width, height);
       ctx.fillStyle = grd;
       ctx.fillRect(0, 0, width, height);
@@ -298,7 +327,7 @@ const EnhancedBackgroundCanvas: React.FC = () => {
 
       // Grid overlay (subtle)
       if (!prefersReducedMotion) {
-        ctx.strokeStyle = 'rgba(0, 242, 255, 0.03)';
+        ctx.strokeStyle = isDark ? 'rgba(0, 242, 255, 0.03)' : 'rgba(0, 0, 0, 0.05)';
         ctx.lineWidth = 1;
         const gridSize = 50;
         for (let x = 0; x < width; x += gridSize) {

@@ -10,9 +10,9 @@ const PlanCard: React.FC<{ title: string; price: string; points: string[]; index
   <div className="glass-pane rounded-xl p-6 sm:p-8 hover:shadow-2xl hover:shadow-[var(--acc-purple)]/20 transition-transform duration-300" style={{ transitionDelay: `${index * 80}ms` }}>
     <div className="flex items-baseline justify-between">
       <h3 data-font-mono className="text-2xl font-bold text-white cyber-gradient-text">{title}</h3>
-      <span className="text-[#EAEAEA]/80" data-font-mono>{price}</span>
+      <span className="text-text/80" data-font-mono>{price}</span>
     </div>
-    <ul className="mt-4 space-y-2 text-[#EAEAEA]">
+    <ul className="mt-4 space-y-2 text-text">
       {points.map((p) => (
         <li key={p} className="flex items-start gap-2">
           <svg className="w-5 h-5 text-[var(--acc-cyan)] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg>
@@ -26,7 +26,7 @@ const PlanCard: React.FC<{ title: string; price: string; points: string[]; index
 const Amenity: React.FC<{ label: string; icon: React.ReactNode }> = ({ label, icon }) => (
   <div className="glass-pane rounded-lg p-4 flex items-center gap-3">
     <div className="text-[var(--acc-cyan)]">{icon}</div>
-    <span className="text-[#EAEAEA]">{label}</span>
+    <span className="text-text">{label}</span>
   </div>
 );
 
@@ -50,7 +50,7 @@ const CoWorkingSection: React.FC<Props> = ({ onGetDeskClick, onBookTourClick }) 
         <h2 data-font-mono className="text-4xl md:text-5xl font-bold text-white tracking-wider">
           CO‑WORKING FROM <span className="cyber-gradient-text">₹3,000/MO</span>
         </h2>
-        <p className="mt-4 text-[#EAEAEA]/80">
+        <p className="mt-4 text-text/80">
           Grab a desk. Join the builders. Same community, flexible access.
         </p>
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -58,7 +58,7 @@ const CoWorkingSection: React.FC<Props> = ({ onGetDeskClick, onBookTourClick }) 
             <span className="absolute inset-0 bg-gradient-to-r from-[var(--acc-cyan)] to-[var(--acc-purple)]" />
             <span className="relative">Get a Desk</span>
           </button>
-          <button onClick={onBookTourClick} className="px-6 py-3 rounded-lg border border-white/15 text-[#EAEAEA]/80 hover:text-white hover:border-white/40 transition">
+          <button onClick={onBookTourClick} className="px-6 py-3 rounded-lg border border-white/15 text-text/80 hover:text-white hover:border-white/40 transition">
             Book a Tour
           </button>
         </div>
@@ -76,7 +76,7 @@ const CoWorkingSection: React.FC<Props> = ({ onGetDeskClick, onBookTourClick }) 
               <Amenity key={a.label} label={a.label} icon={a.icon} />
             ))}
           </div>
-          <p className="text-xs text-[#EAEAEA]/60 mt-4">Subject to availability.</p>
+          <p className="text-xs text-text/60 mt-4">Subject to availability.</p>
         </div>
       </div>
     </Section>
