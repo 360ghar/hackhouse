@@ -21,9 +21,7 @@ const Header = ({ onApplyClick }: HeaderProps) => {
   const navLinks = [
     { href: "#value", label: "Why HackHouse" },
     { href: "#amenities", label: "What's Included" },
-    { href: "#tools", label: "Tools" },
     { href: "#pricing", label: "Pricing" },
-    { href: "#faq", label: "FAQ" },
   ];
 
   return (
@@ -53,7 +51,7 @@ const Header = ({ onApplyClick }: HeaderProps) => {
           ))}
         </nav>
 
-        <div className="hidden md:block">
+        <div className="hidden md:flex items-center gap-3">
           <Button 
             className="bg-primary hover:bg-primary/90 glow-primary font-heading"
             onClick={onApplyClick}

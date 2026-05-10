@@ -14,7 +14,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { Loader2, Send, CheckCircle } from "lucide-react";
+import { Loader2, Send, CheckCircle, Phone } from "lucide-react";
 
 const applicationSchema = z.object({
   name: z
@@ -110,6 +110,11 @@ const ApplicationModal = ({ isOpen, onClose }: ApplicationModalProps) => {
               <DialogDescription className="text-muted-foreground">
                 Join our curated community of builders. Takes less than 5 minutes.
               </DialogDescription>
+              <p className="text-xs text-muted-foreground mt-1 flex items-center gap-1.5">
+                <Phone className="w-3 h-3" />
+                <span>Or call us: </span>
+                <a href="tel:+919999900876" className="text-primary hover:underline font-medium">+91-9999900876</a>
+              </p>
             </DialogHeader>
 
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 mt-4">

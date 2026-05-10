@@ -34,7 +34,7 @@ const Hero = ({ onApplyClick }: HeroProps) => {
 
           {/* Subheadline */}
           <p className="text-xl md:text-2xl text-muted-foreground mb-4 animate-fade-up stagger-2 max-w-2xl mx-auto">
-            Imagine living in a space built just for founders like you.
+            Gurgaon's premier co-living space for startup founders, developers, and builders.
           </p>
 
           {/* Value Hook */}

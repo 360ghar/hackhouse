@@ -1,4 +1,4 @@
-import { Coffee, Calendar, Check } from "lucide-react";
+import { Coffee, Calendar, Check, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AnimatedSection from "./AnimatedSection";
 
@@ -44,6 +44,11 @@ const CoworkingOption = () => {
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Experience the HackHouse energy with our co-working options.
+          </p>
+          <p className="text-sm text-muted-foreground mt-3 flex items-center justify-center gap-1.5">
+            <Phone className="w-4 h-4" />
+            <span>For inquiries: </span>
+            <a href="tel:+919999900876" className="text-primary hover:underline font-medium">9999900876</a>
           </p>
         </AnimatedSection>
 

@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, Phone } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
 
 interface FinalCTAProps {
@@ -40,13 +40,13 @@ const FinalCTA = ({ onApplyClick }: FinalCTAProps) => {
                 Apply Now
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-border hover:bg-secondary font-heading text-lg px-10 py-7"
+              <a
+                href="tel:+919999900876"
+                className="inline-flex items-center justify-center gap-2 border border-border rounded-md font-heading text-lg px-10 py-7 hover:bg-secondary transition-colors"
               >
-                Schedule a Visit
-              </Button>
+                <Phone className="w-5 h-5" />
+                Call 9999900876
+              </a>
             </div>
 
             <p className="text-muted-foreground text-sm mt-8">

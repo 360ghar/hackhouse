@@ -8,7 +8,7 @@ import ApplicationProcess from "@/components/landing/ApplicationProcess";
 import CoworkingOption from "@/components/landing/CoworkingOption";
 import FAQ from "@/components/landing/FAQ";
 import FinalCTA from "@/components/landing/FinalCTA";
-// import Footer from "@/components/landing/Footer";
+import Footer from "@/components/landing/Footer";
 import ApplicationModal from "@/components/landing/ApplicationModal";
 
 const Index = () => {
@@ -29,7 +29,7 @@ const Index = () => {
       <CoworkingOption />
       <FAQ />
       <FinalCTA onApplyClick={handleApplyClick} />
-      {/* <Footer /> */}
+      <Footer />
       <ApplicationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </main>
   );

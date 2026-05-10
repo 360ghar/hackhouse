@@ -48,6 +48,21 @@ const FAQ = () => {
       answer:
         "Yes, we're selective to ensure a high-quality community. We look for builders who are actively working on projects, have clear goals, and will contribute positively to the house culture. It's not just about credentials—it's about energy and intent.",
     },
+    {
+      question: "What is the best co-living space for startup founders in Gurgaon?",
+      answer:
+        "HackHouse Gurgaon is a curated co-living space designed specifically for startup founders, developers, and builders. Unlike regular co-living spaces, HackHouse offers premium AI tools access, mentorship from experienced founders, weekend launch sprints, and a handpicked community of 8 builders per cohort — all for ₹30,000/month all-inclusive.",
+    },
+    {
+      question: "Is there a hacker house or co-living space near Delhi NCR for tech professionals?",
+      answer:
+        "Yes, HackHouse Gurgaon is the premier hacker house in the Delhi NCR region. Located in the heart of Gurgaon with excellent metro connectivity, it offers fully-furnished stay, 3 meals daily, 1 Gbps internet, premium AI tools, and a curated community of builders — all for ₹30,000/month.",
+    },
+    {
+      question: "How is HackHouse different from a regular PG or co-living in Gurgaon?",
+      answer:
+        "HackHouse is not a regular PG. It's a curated accelerator-style co-living space where every resident is actively building something — a startup, side project, or open-source tool. You get access to ₹20,000+/month worth of premium AI tools (Claude Max, Cursor Pro, ChatGPT Business), weekly mentorship sessions, demo day prep, investor networking, and a community that pushes you to ship faster. Regular PGs don't offer any of this.",
+    },
   ];
 
   return (
