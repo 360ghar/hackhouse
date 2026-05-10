@@ -1,10 +1,7 @@
-import { Twitter, Linkedin, Instagram, Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 
 const Footer = () => {
   const socialLinks = [
-    { icon: Twitter, href: "https://twitter.com/HackHouseGGN", label: "Twitter" },
-    { icon: Linkedin, href: "https://www.linkedin.com/company/hackhouse-gurgaon", label: "LinkedIn" },
-    { icon: Instagram, href: "https://www.instagram.com/hackhouse.ggn", label: "Instagram" },
     { icon: Mail, href: "mailto:hello@hackhouse.in", label: "Email" },
   ];
 
@@ -12,8 +9,6 @@ const Footer = () => {
     { label: "About", href: "#value" },
     { label: "Blog", href: "/blog" },
     { label: "FAQ", href: "#faq" },
-    { label: "Privacy Policy", href: "#" },
-    { label: "Terms of Service", href: "#" },
   ];
 
   return (
