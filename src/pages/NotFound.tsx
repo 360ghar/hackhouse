@@ -23,7 +23,7 @@ const NotFound = () => {
     <main id="main-content" className="min-h-screen bg-background font-body flex flex-col">
       <SEO
         title="Page Not Found | HackHouse Gurgaon"
-        description="The page you're looking for doesn't exist. Return to the HackHouse homepage to explore our co-living space for founders and developers in Gurgaon."
+        description="The page you're looking for doesn't exist. Return to the HackHouse homepage to explore our startup residency for founders and developers in Gurgaon."
         noindex
       />
       <Header onApplyClick={handleApplyClick} />

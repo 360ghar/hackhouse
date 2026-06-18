@@ -10,18 +10,18 @@ const AboutSection = () => {
             About <span className="text-gradient">HackHouse</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            A curated co-living space for founders, developers, and builders in Gurgaon, India.
+            A startup residency for founders, developers, and builders in Gurgaon, India.
           </p>
         </AnimatedSection>
 
         <AnimatedSection>
           <div className="glass rounded-2xl p-8 max-w-3xl mx-auto">
             <p className="text-muted-foreground leading-relaxed mb-6">
-              HackHouse is a curated co-living space in Sector 50, Gurgaon, designed for early-stage
-              founders, developers, and builders who want to ship faster. Each cohort is limited to 8
-              curated residents to keep the community tight and the energy high. We bundle stay, meals,
-              1 Gbps internet, premium AI tools, and weekly mentorship into a single Rs 35,000/month
-              fee so you can focus on building instead of managing logistics.
+              HackHouse is a startup residency in Sector 50, Gurgaon, designed
+              for early-stage founders, developers, and builders who want to ship faster. Each cohort
+              is limited to 8 curated residents to keep the community tight and the energy high. We
+              bundle stay, meals, 1 Gbps internet, premium AI tools, and weekly mentorship into a
+              single Rs 35,000/month fee so you can focus on building instead of managing logistics.
             </p>
 
             <div className="grid sm:grid-cols-2 gap-6 mt-8">

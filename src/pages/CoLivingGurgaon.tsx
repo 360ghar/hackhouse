@@ -15,10 +15,10 @@ const CoLivingGurgaon = () => {
     {
       "@context": "https://schema.org",
       "@type": "Service",
-      serviceType: "Co-Living Space",
-      name: "HackHouse Co-Living Gurgaon",
+      serviceType: "Startup Residency",
+      name: "HackHouse Startup Residency Gurgaon",
       description:
-        "Curated co-living space for founders, developers, and builders in Sector 50, Gurgaon. Fully-furnished stay, 3 meals daily, 1 Gbps internet, premium AI tools, and a community of 8 builders for ₹35,000/month.",
+        "Startup residency for founders, developers, and builders in Sector 50, Gurgaon. Fully-furnished stay, 3 meals daily, 1 Gbps internet, premium AI tools, and a community of 8 builders for ₹35,000/month.",
       url: "https://hackhouse.in/co-living-gurgaon",
       provider: { "@id": "https://hackhouse.in/#organization" },
       areaServed: { "@type": "City", name: "Gurgaon" },
@@ -92,7 +92,7 @@ const CoLivingGurgaon = () => {
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl">
             Co-living in Gurgaon costs ₹12,000 to ₹35,000 per month depending on amenities.
-            HackHouse in Sector 50 offers fully-furnished stay, 3 meals, 1 Gbps internet, and premium
+            HackHouse in Sector 50 is a startup residency for founders — fully-furnished stay, 3 meals, 1 Gbps internet, and premium
             AI tools for ₹35,000/month all-inclusive.
           </p>
         </AnimatedSection>
@@ -193,7 +193,7 @@ const CoLivingGurgaon = () => {
           <section className="mb-12 glass rounded-2xl p-8 text-center">
             <h2 className="font-heading text-3xl font-bold mb-3">Experience HackHouse Gurgaon</h2>
             <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
-              Co-living for founders and developers in Sector 50, Gurgaon. ₹35,000/month,
+              Startup residency for founders in Sector 50, Gurgaon. ₹35,000/month,
               all-inclusive.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

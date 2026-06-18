@@ -92,7 +92,7 @@ const HackerHouseIndia = () => {
               energy.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              Unlike a regular PG or co-living space, a hacker house is built around a single purpose:
+              Unlike a regular PG, a hacker house is built around a single purpose:
               helping residents ship faster. Everyone in the house is actively working on something,
               and the environment is engineered for deep work, serendipity, and collaboration.
             </p>

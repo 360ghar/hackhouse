@@ -14,7 +14,7 @@ const Footer = () => {
     { label: "About", href: "#value" },
     { label: "What's Included", href: "#amenities" },
     { label: "Pricing", href: "/pricing" },
-    { label: "Co-Living Gurgaon", href: "/co-living-gurgaon" },
+    { label: "Residency in Gurgaon", href: "/co-living-gurgaon" },
     { label: "Hacker House India", href: "/hacker-house-india" },
     { label: "Blog", href: "/blog" },
     { label: "FAQ", href: "#faq" },

@@ -15,7 +15,7 @@ const Pricing = () => {
     {
       "@context": "https://schema.org",
       "@type": "Product",
-      name: "HackHouse Co-Living Membership",
+      name: "HackHouse Residency Membership",
       description:
         "Fully-furnished double-sharing room, 3 meals daily, 1 Gbps internet, premium AI tools, weekly events, mentorship, and a curated community of 8 builders in Gurgaon.",
       url: "https://hackhouse.in/pricing",
@@ -23,11 +23,11 @@ const Pricing = () => {
       offers: [
         {
           "@type": "Offer",
-          name: "Co-Living Membership",
+          name: "Residency Membership",
           price: "35000",
           priceCurrency: "INR",
           availability: "https://schema.org/LimitedAvailability",
-          description: "Monthly all-inclusive co-living membership.",
+          description: "Monthly all-inclusive startup residency membership.",
         },
         {
           "@type": "Offer",
@@ -77,10 +77,10 @@ const Pricing = () => {
   return (
     <main id="main-content" className="min-h-screen bg-background font-body">
       <SEO
-        title="Pricing: HackHouse Gurgaon Co-Living & Co-Working | ₹35,000/month"
-        description="HackHouse Gurgaon pricing: ₹35,000/month all-inclusive co-living (room, meals, internet, AI tools), ₹500/day co-working pass, and ₹5,000/month co-working pass. Full value breakdown."
+        title="Pricing: HackHouse Gurgaon Residency & Co-Working | ₹35,000/month"
+        description="HackHouse Gurgaon pricing: ₹35,000/month all-inclusive startup residency (room, meals, internet, AI tools), ₹500/day co-working pass, and ₹5,000/month co-working pass. Full value breakdown."
         canonical="/pricing"
-        keywords="HackHouse pricing, co-living Gurgaon price, hacker house cost India, coworking Gurgaon price"
+        keywords="HackHouse pricing, startup residency Gurgaon price, founder residency India, hacker house cost India, coworking Gurgaon price"
         jsonLd={jsonLd}
       />
       <Header onApplyClick={() => setIsModalOpen(true)} />

@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Primary SEO -->
-    <title>HackHouse Gurgaon - Co-Living Space for Founders & Builders</title>
-    <meta name="description" content="HackHouse Gurgaon: a curated co-living space for founders, developers, and builders. Get ₹60,000+ worth of resources for just ₹35,000/month. Fully-furnished stay, 3 meals, AI tools, and 1 Gbps internet." />
-    <meta name="keywords" content="hacker house, co-living space, Gurgaon, co-living Gurgaon, hacker house India, startup co-living, founders, developers, startup accelerator, India, hackhouse, coworking, living space, co-living Delhi NCR, PG for developers Gurgaon, builder house, startup house Gurgaon, coliving for startups, founder house India, co-living Haryana, hacker house Delhi NCR" />
+    <title>HackHouse Gurgaon — Startup Residency for Founders & Builders</title>
+    <meta name="description" content="HackHouse Gurgaon: a startup residency for founders, developers, and builders. Get ₹60,000+ worth of resources for just ₹35,000/month. Fully-furnished stay, 3 meals, AI tools, and 1 Gbps internet." />
+    <meta name="keywords" content="hacker house, startup residency, founder hacker house, founder residency India, Gurgaon, hacker house India, startup residency Gurgaon, founders, developers, startup accelerator, India, hackhouse, coworking, builder house, startup house Gurgaon, founder house India, hacker house Delhi NCR, residency for founders India" />
     <meta name="author" content="HackHouse" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://hackhouse.in/" />
@@ -22,7 +22,7 @@
     <meta property="og:image" content="https://hackhouse.in/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="HackHouse Gurgaon - Co-Living Space for Founders & Builders" />
+    <meta property="og:image:alt" content="HackHouse Gurgaon — Startup Residency for Founders & Builders" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -54,6 +54,15 @@
     <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 
+    <!-- Critical inline CSS: prevent FOUC before the Tailwind bundle loads.
+         body bg matches --background (hsl(240 10% 4%)); .seo-fallback hides the
+         crawler-only HTML inside #root so users never see unstyled text. -->
+    <style>
+      html { background-color: #0a0a0d; }
+      body { margin: 0; background-color: #0a0a0d; color: #fafafa; }
+      .seo-fallback { display: none; }
+    </style>
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/logo.png" />
@@ -75,7 +84,7 @@
       "url": "https://hackhouse.in",
       "logo": "https://hackhouse.in/logo.png",
       "image": "https://hackhouse.in/og-image.png",
-      "description": "A curated co-living space for founders, developers, and builders in Gurgaon, India. Get ₹60,000+ worth of resources for just ₹35,000/month.",
+      "description": "A startup residency for founders, developers, and builders in Gurgaon, India. Get ₹60,000+ worth of resources for just ₹35,000/month.",
       "telephone": "+91-9999900876",
       "email": "hello@hackhouse.in",
       "contactPoint": {
@@ -105,7 +114,7 @@
       "@id": "https://hackhouse.in/#website",
       "name": "HackHouse Gurgaon",
       "url": "https://hackhouse.in",
-      "description": "Co-living space for founders, developers, and builders in Gurgaon, India",
+      "description": "Startup residency for founders, developers, and builders in Gurgaon, India",
       "inLanguage": "en-IN",
       "publisher": {
         "@id": "https://hackhouse.in/#organization"
@@ -120,8 +129,8 @@
       "@type": "LodgingBusiness",
       "@id": "https://hackhouse.in/#lodgingbusiness",
       "name": "HackHouse Gurgaon",
-      "alternateName": "HackHouse Co-Living Space",
-      "description": "Curated co-living space for founders, developers, and builders in Gurgaon, India. Fully-furnished stay, 3 meals daily, 1 Gbps internet, premium AI tools, and a curated community of 8 builders.",
+      "alternateName": "HackHouse Startup Residency",
+      "description": "Startup residency for founders, developers, and builders in Gurgaon, India. Fully-furnished stay, 3 meals daily, 1 Gbps internet, premium AI tools, and a curated community of 8 builders.",
       "url": "https://hackhouse.in",
       "image": "https://hackhouse.in/og-image.png",
       "telephone": "+91-9999900876",
@@ -190,14 +199,14 @@
       "@context": "https://schema.org",
       "@type": "Offer",
       "@id": "https://hackhouse.in/#offer-coliving",
-      "name": "HackHouse Co-Living Membership",
+      "name": "HackHouse Residency Membership",
       "description": "Fully-furnished double-sharing room, 3 meals daily, 1 Gbps internet with 24x7 backup, shared access to premium AI tools, weekly events, mentorship sessions, and a curated community of 8 builders.",
       "url": "https://hackhouse.in/pricing",
       "price": "35000",
       "priceCurrency": "INR",
       "priceValidUntil": "2027-03-31",
       "availability": "https://schema.org/LimitedAvailability",
-      "category": "Co-Living Space",
+      "category": "Startup Residency",
       "offeredBy": {
         "@id": "https://hackhouse.in/#organization"
       },
@@ -216,7 +225,7 @@
       "@context": "https://schema.org",
       "@type": "HowTo",
       "name": "How to join HackHouse Gurgaon",
-      "description": "A 4-step process to apply, get selected, and move into HackHouse, a curated co-living space for founders and developers in Gurgaon.",
+      "description": "A 4-step process to apply, get selected, and move into HackHouse, a startup residency for founders and developers in Gurgaon.",
       "step": [
         {
           "@type": "HowToStep",
@@ -253,7 +262,7 @@
       "@type": "WebPage",
       "@id": "https://hackhouse.in/#webpage",
       "url": "https://hackhouse.in/",
-      "name": "HackHouse Gurgaon - Co-Living Space for Founders & Builders",
+      "name": "HackHouse Gurgaon — Startup Residency for Founders & Builders",
       "inLanguage": "en-IN",
       "isPartOf": { "@id": "https://hackhouse.in/#website" },
       "about": { "@id": "https://hackhouse.in/#organization" },
@@ -387,10 +396,12 @@
         Server-rendered content mirror for crawlers and AI systems that do not execute
         JavaScript. This content is replaced by the React app on hydration. Keeping it
         in the raw HTML ensures search engines and AI crawlers (GPTBot, ClaudeBot,
-        PerplexityBot, Googlebot) can read the full page content.
+        PerplexityBot, Googlebot) can read the full page content. Wrapped in
+        .seo-fallback (display:none) so sighted users never see unstyled text.
       -->
-      <h1 id="hero-headline">HackHouse Gurgaon - Build Faster. Together.</h1>
-      <p>Gurgaon's premier co-living space for startup founders, developers, and builders. Get resources worth ₹60,000+/month for just ₹35,000.</p>
+      <div class="seo-fallback">
+      <h1 id="hero-headline">HackHouse Gurgaon — A residency for founders who ship.</h1>
+      <p>India's startup residency for founders, developers, and builders. A curated cohort of 8. Stay, build, ship. Get resources worth ₹60,000+/month for just ₹35,000.</p>
 
       <h2>Why HackHouse?</h2>
       <ul>
@@ -413,7 +424,7 @@
       <p>HackHouse bundles a furnished room, 3 daily meals, 1 Gbps internet with backup, premium AI tools worth ₹20,000+/month, a curated community of 8 builders, and weekly mentorship into one ₹35,000/month fee. A regular PG costs ₹12,000-18,000 but offers none of this. A co-working desk costs ₹5,000-15,000 but provides no stay or community.</p>
 
       <h2>Pricing</h2>
-      <p><strong>Co-Living Membership:</strong> ₹35,000/month (all-inclusive)</p>
+      <p><strong>Residency Membership:</strong> ₹35,000/month (all-inclusive)</p>
       <p><strong>Daily Co-Working Pass:</strong> ₹500/day</p>
       <p><strong>Monthly Co-Working Pass:</strong> ₹5,000/month</p>
       <p>See the full <a href="https://hackhouse.in/pricing">pricing breakdown</a>.</p>
@@ -452,7 +463,7 @@
       <p>Yes, we're selective to ensure a high-quality community of active builders.</p>
 
       <h3>How is HackHouse different from a regular PG?</h3>
-      <p>A PG just gives you a bed. HackHouse gives you a curated community of builders, premium AI tools worth ₹20,000+/month, weekly mentorship, and demo day prep.</p>
+      <p>A PG just gives you a bed. HackHouse is a startup residency that gives you a curated community of builders, premium AI tools worth ₹20,000+/month, weekly mentorship, and demo day prep.</p>
 
       <h3>Is HackHouse accessible from Delhi?</h3>
       <p>Yes, via the Yellow Line and Rapid Metro.</p>
@@ -472,14 +483,15 @@
       <p>Phone: <a href="tel:+919999900876">+91-9999900876</a></p>
       <p>Email: <a href="mailto:hello@hackhouse.in">hello@hackhouse.in</a></p>
       <p>Location: Sector 50, Gurgaon, Haryana, India</p>
+      </div>
     </div>
 
     <!-- Noscript fallback for crawlers that ignore the #root mirror -->
     <noscript>
       <div style="padding:2rem;max-width:800px;margin:0 auto;font-family:Inter,system-ui,sans-serif;color:#0f172a;">
-        <h2>HackHouse Gurgaon - Build Faster. Together.</h2>
-        <p>Gurgaon's premier co-living space for startup founders, developers, and builders. Get resources worth ₹60,000+/month for just ₹35,000.</p>
-        <p>HackHouse bundles a furnished room, 3 daily meals, 1 Gbps internet, premium AI tools worth ₹20,000+/month, and a curated community of 8 builders into one ₹35,000/month fee.</p>
+        <h2>HackHouse Gurgaon — A residency for founders who ship.</h2>
+        <p>India's startup residency for founders, developers, and builders. A curated cohort of 8. Get resources worth ₹60,000+/month for just ₹35,000.</p>
+        <p>HackHouse bundles a furnished room, 3 daily meals, 1 Gbps internet, premium AI tools worth ₹20,000+/month, and a curated community of 8 builders into one ₹35,000/month residency fee.</p>
         <p>Learn more: <a href="https://hackhouse.in/co-living-gurgaon">Co-Living in Gurgaon</a>, <a href="https://hackhouse.in/hacker-house-india">What is a Hacker House</a>, <a href="https://hackhouse.in/pricing">Pricing</a>, <a href="https://hackhouse.in/blog">Blog</a>.</p>
         <p>Phone: <a href="tel:+919999900876">+91-9999900876</a> | Email: <a href="mailto:hello@hackhouse.in">hello@hackhouse.in</a></p>
       </div>

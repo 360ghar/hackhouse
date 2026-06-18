@@ -1,7 +1,7 @@
 {
-  "name": "HackHouse Gurgaon - Co-Living Space for Founders & Builders",
+  "name": "HackHouse Gurgaon — Startup Residency for Founders & Builders",
   "short_name": "HackHouse",
-  "description": "A curated co-living space for founders, developers, and builders in Gurgaon, India. Get ₹60,000+ worth of resources for just ₹35,000/month.",
+  "description": "A startup residency for founders, developers, and builders in Gurgaon, India. Get ₹60,000+ worth of resources for just ₹35,000/month.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0f172a",

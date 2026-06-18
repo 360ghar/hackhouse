@@ -24,10 +24,10 @@ const Index = () => {
   return (
     <main id="main-content" className="min-h-screen bg-background font-body">
       <SEO
-        title="HackHouse Gurgaon - Co-Living Space for Founders & Builders"
-        description="HackHouse Gurgaon: a curated co-living space for founders, developers, and builders. Get ₹60,000+ worth of resources for just ₹35,000/month. Fully-furnished stay, 3 meals, AI tools, and 1 Gbps internet."
+        title="HackHouse Gurgaon — Startup Residency for Founders & Builders"
+        description="HackHouse Gurgaon: a startup residency for founders, developers, and builders. Get ₹60,000+ worth of resources for just ₹35,000/month. Fully-furnished stay, 3 meals, AI tools, and 1 Gbps internet."
         canonical="/"
-        keywords="hacker house, co-living space, Gurgaon, co-living Gurgaon, hacker house India, startup co-living, founders, developers, PG for developers Gurgaon, builder house, startup house Gurgaon, co-living Delhi NCR"
+        keywords="hacker house, startup residency, founder hacker house, founder residency India, Gurgaon, hacker house India, startup residency Gurgaon, founders, developers, PG for developers Gurgaon, builder house, startup house Gurgaon"
       />
       <Header onApplyClick={handleApplyClick} />
       <Hero onApplyClick={handleApplyClick} />

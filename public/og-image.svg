@@ -30,10 +30,10 @@
   <circle cx="120" cy="136" r="6" fill="#f59e0b"/>
   <text x="140" y="143" font-family="Inter, system-ui, sans-serif" font-size="20" fill="#cbd5e1" font-weight="600">Only 8 spots per cohort</text>
   <!-- headline -->
-  <text x="88" y="280" font-family="'Space Grotesk', Inter, sans-serif" font-size="96" font-weight="700" fill="#f8fafc">Build Faster.</text>
-  <text x="88" y="380" font-family="'Space Grotesk', Inter, sans-serif" font-size="96" font-weight="700" fill="url(#accent)">Together.</text>
+  <text x="88" y="280" font-family="'Space Grotesk', Inter, sans-serif" font-size="84" font-weight="700" fill="#f8fafc">A residency for</text>
+  <text x="88" y="380" font-family="'Space Grotesk', Inter, sans-serif" font-size="84" font-weight="700" fill="url(#accent)">founders who ship.</text>
   <!-- subhead -->
-  <text x="92" y="450" font-family="Inter, system-ui, sans-serif" font-size="30" fill="#cbd5e1">Co-living for founders, developers &amp; builders in Gurgaon</text>
+  <text x="92" y="450" font-family="Inter, system-ui, sans-serif" font-size="30" fill="#cbd5e1">Startup residency for founders, developers &amp; builders in Gurgaon</text>
   <!-- brand -->
   <text x="90" y="600" font-family="'Space Grotesk', Inter, sans-serif" font-size="28" font-weight="700" fill="#a855f7">HackHouse</text>
   <text x="265" y="600" font-family="Inter, system-ui, sans-serif" font-size="22" fill="#94a3b8">Gurgaon, India</text>

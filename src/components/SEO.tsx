@@ -41,7 +41,7 @@ const SEO = ({
       <meta property="og:image" content={`${SITE}/og-image.png`} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-      <meta property="og:image:alt" content="HackHouse Gurgaon - Co-Living Space for Founders & Builders" />
+      <meta property="og:image:alt" content="HackHouse Gurgaon — Startup Residency for Founders & Builders" />
       <meta name="twitter:card" content="summary_large_image" />
       {url && <meta name="twitter:url" content={url} />}
       <meta name="twitter:title" content={title} />

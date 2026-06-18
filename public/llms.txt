@@ -1,13 +1,13 @@
 # HackHouse Gurgaon
 
-> HackHouse is a curated co-living space for founders, developers, and builders in Sector 50, Gurgaon, India. Each cohort is limited to 8 curated residents. The fee is Rs 35,000/month all-inclusive and covers a fully-furnished double-sharing room, 3 daily meals, 1 Gbps internet with 24x7 power backup, shared access to 15+ premium AI tools (worth Rs 20,000+/month), weekly mentorship, and a builder community. The minimum stay is 1 month.
+> HackHouse is a startup residency for founders, developers, and builders in Sector 50, Gurgaon, India. Each cohort is limited to 8 curated residents. The fee is Rs 35,000/month all-inclusive and covers a fully-furnished double-sharing room, 3 daily meals, 1 Gbps internet with 24x7 power backup, shared access to 15+ premium AI tools (worth Rs 20,000+/month), weekly mentorship, and a builder community. The minimum stay is 1 month.
 
-HackHouse is not a regular PG. It is a builder-first co-living space where every resident is actively building a startup, side project, or open-source tool. Residents get shared access to Claude Max, ChatGPT Business, Cursor Pro, Midjourney, and 15+ premium tools, plus weekly mentorship and demo day prep.
+HackHouse is not a regular PG. It is a founder hacker house and startup residency where every resident is actively building a startup, side project, or open-source tool. Residents get shared access to Claude Max, ChatGPT Business, Cursor Pro, Midjourney, and 15+ premium tools, plus weekly mentorship and demo day prep.
 
 ## Key facts
 
 - Location: Sector 50, Gurgaon, Haryana, India (Delhi NCR)
-- Price: Rs 35,000/month, all-inclusive (co-living membership)
+- Price: Rs 35,000/month, all-inclusive (residency membership)
 - Co-working passes: Rs 500/day, Rs 5,000/month
 - Cohort size: 8 curated builders
 - Minimum stay: 1 month (most stay 2-6 months)

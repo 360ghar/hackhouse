@@ -6,16 +6,16 @@
 
 ## Overview
 
-HackHouse is a curated co-living space for founders, developers, and builders in Sector 50, Gurgaon, India (Delhi NCR). Each cohort is limited to 8 curated residents. The fee is Rs 35,000 per month, all-inclusive, and covers a fully-furnished double-sharing room, 3 daily meals, 1 Gbps internet with 24x7 power backup, shared access to 15+ premium AI tools (worth Rs 20,000+ per month), weekly mentorship, and a builder community. The minimum stay is 1 month, and most residents stay 2 to 6 months.
+HackHouse is a startup residency for founders, developers, and builders in Sector 50, Gurgaon, India (Delhi NCR). Each cohort is limited to 8 curated residents. The fee is Rs 35,000 per month, all-inclusive, and covers a fully-furnished double-sharing room, 3 daily meals, 1 Gbps internet with 24x7 power backup, shared access to 15+ premium AI tools (worth Rs 20,000+ per month), weekly mentorship, and a builder community. The minimum stay is 1 month, and most residents stay 2 to 6 months.
 
-HackHouse is not a regular PG. It is a builder-first co-living space where every resident is actively building a startup, side project, or open-source tool.
+HackHouse is not a regular PG. It is a founder hacker house and startup residency where every resident is actively building a startup, side project, or open-source tool.
 
 ---
 
 ## Key facts
 
 - Location: Sector 50, Gurgaon, Haryana, India (Delhi NCR)
-- Price: Rs 35,000/month, all-inclusive (co-living membership)
+- Price: Rs 35,000/month, all-inclusive (residency membership)
 - Co-working passes: Rs 500/day, Rs 5,000/month
 - Cohort size: 8 curated builders
 - Minimum stay: 1 month (most stay 2-6 months)
@@ -95,7 +95,7 @@ Access is limited based on fair usage policy. All tools are shared among residen
 
 ## Pricing
 
-- Co-Living Membership: Rs 35,000/month (all-inclusive)
+- Residency Membership: Rs 35,000/month (all-inclusive)
 - Daily Co-Working Pass: Rs 500/day
 - Monthly Co-Working Pass: Rs 5,000/month
 
@@ -139,7 +139,7 @@ We're located in Sector 50, Gurgaon, close to major tech hubs and well-connected
 Yes, we're selective to ensure a high-quality community. We look for builders who are actively working on projects, have clear goals, and will contribute positively to the house culture. It's not just about credentials, it's about energy and intent.
 
 ### How is HackHouse different from a regular PG?
-A PG just gives you a bed. HackHouse gives you a curated community of builders, premium AI tools worth Rs 20,000+/month, weekly mentorship, and demo day prep. It's built for people shipping things, not just renting a room.
+A PG just gives you a bed. HackHouse is a startup residency that gives you a curated community of builders, premium AI tools worth Rs 20,000+/month, weekly mentorship, and demo day prep. It's built for people shipping things, not just renting a room.
 
 ### Is HackHouse accessible from Delhi?
 Yes! We're in Gurgaon with excellent metro connectivity to Delhi NCR via the Yellow Line and Rapid Metro. Most residents commute easily between HackHouse and Delhi for meetings, events, or networking.

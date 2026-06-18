@@ -51,7 +51,7 @@ const FAQ = () => {
     {
       question: "How is HackHouse different from a regular PG?",
       answer:
-        "A PG just gives you a bed. HackHouse gives you a curated community of builders, premium AI tools worth ₹20,000+/month, weekly mentorship, and demo day prep. It's built for people shipping things, not just renting a room.",
+        "A PG just gives you a bed. HackHouse gives you a curated community of builders, premium AI tools worth ₹20,000+/month, weekly mentorship, and demo day prep. It's a startup residency built for people shipping things, not just renting a room.",
     },
     {
       question: "Is HackHouse accessible from Delhi?",

@@ -25,14 +25,14 @@ export const blogPosts: BlogPost[] = [
     dateModified: "2026-06-18",
     author: "HackHouse Team",
     authorBio:
-      "The HackHouse Team runs a curated co-living space for founders and developers in Gurgaon, India. We have hosted builders working on startups, side projects, and open-source tools.",
+      "The HackHouse Team runs a startup residency for founders and developers in Gurgaon, India. We have hosted builders working on startups, side projects, and open-source tools.",
     readingTime: "7 min read",
     sections: [
       {
         heading: "What is a hacker house?",
         paragraphs: [
           "A hacker house is a shared living space where builders, developers, founders, designers, and creators live together for an intense period to build projects, collaborate deeply, and accelerate their startups. Think of it as an ashram for startup energy.",
-          "Unlike a regular PG or co-living space, a hacker house is built around a single purpose: helping residents ship faster. Everyone in the house is actively working on something, and the environment is engineered for deep work, serendipity, and collaboration.",
+          "Unlike a regular PG, a hacker house is built around a single purpose: helping residents ship faster. Everyone in the house is actively working on something, and the environment is engineered for deep work, serendipity, and collaboration.",
         ],
       },
       {
@@ -102,14 +102,14 @@ export const blogPosts: BlogPost[] = [
     dateModified: "2026-06-18",
     author: "HackHouse Team",
     authorBio:
-      "The HackHouse Team operates a curated co-living space for founders and developers in Gurgaon, India.",
+      "The HackHouse Team operates a startup residency for founders and developers in Gurgaon, India.",
     readingTime: "8 min read",
     sections: [
       {
         heading: "How much does co-living in Gurgaon cost?",
         paragraphs: [
           "Co-living in Gurgaon costs between ₹12,000 and ₹35,000 per month depending on room type, location, and amenities. A basic double-sharing PG costs ₹12,000 to ₹18,000, a single room costs ₹18,000 to ₹28,000, and premium co-living with meals, internet, and community costs ₹25,000 to ₹35,000.",
-          "HackHouse Gurgaon charges ₹35,000 per month all-inclusive, which covers a double-sharing room, 3 daily meals, 1 Gbps internet with 24x7 power backup, shared premium AI tools, and a curated community of 8 builders.",
+          "HackHouse Gurgaon charges ₹35,000 per month all-inclusive, which covers a double-sharing room, 3 daily meals, 1 Gbps internet with 24x7 power backup, shared premium AI tools, and a curated community of 8 builders. HackHouse runs as a startup residency — every resident is actively building something.",
         ],
       },
       {
@@ -173,7 +173,7 @@ export const blogPosts: BlogPost[] = [
     dateModified: "2026-06-18",
     author: "HackHouse Team",
     authorBio:
-      "The HackHouse Team provides residents with shared access to 15+ premium AI tools at its co-living space in Gurgaon.",
+      "The HackHouse Team provides residents with shared access to 15+ premium AI tools at its startup residency in Gurgaon.",
     readingTime: "6 min read",
     sections: [
       {
@@ -218,7 +218,7 @@ export const blogPosts: BlogPost[] = [
         heading: "How much do AI tools cost per month?",
         paragraphs: [
           "Individually, these tools add up quickly. Claude Max costs around ₹8,000 per month, ChatGPT Business ₹2,000 to ₹4,000 per seat, Cursor Pro ₹2,000 per month, and Midjourney ₹1,000 to ₹5,000 per month. A full founder stack easily exceeds ₹20,000 per month.",
-          "Sharing access through a hacker house like HackHouse lets founders use the entire stack for a fraction of the standalone cost, bundled into the ₹35,000 monthly co-living fee.",
+          "Sharing access through a hacker house like HackHouse lets founders use the entire stack for a fraction of the standalone cost, bundled into the ₹35,000 monthly residency fee.",
         ],
       },
     ],
@@ -246,7 +246,7 @@ export const blogPosts: BlogPost[] = [
     dateModified: "2026-06-18",
     author: "HackHouse Team",
     authorBio:
-      "The HackHouse Team curates a developer-focused co-living space in Gurgaon, India.",
+      "The HackHouse Team curates a developer-focused startup residency in Gurgaon, India.",
     readingTime: "5 min read",
     sections: [
       {
@@ -282,7 +282,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "5. Look for tool and infrastructure access",
         paragraphs: [
-          "Developer-focused co-living spaces often bundle premium AI tools, a co-working area, meeting rooms, and mentorship. These can be worth more than the rent itself if you would otherwise pay for them separately.",
+          "Developer-focused spaces like HackHouse run as a startup residency and bundle premium AI tools, a co-working area, meeting rooms, and mentorship. These can be worth more than the rent itself if you would otherwise pay for them separately.",
         ],
       },
     ],

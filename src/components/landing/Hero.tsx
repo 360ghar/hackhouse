@@ -28,13 +28,13 @@ const Hero = ({ onApplyClick }: HeroProps) => {
 
           {/* Main Headline */}
           <h1 id="hero-headline" className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold mb-6 animate-fade-up stagger-1">
-            Build Faster.{" "}
-            <span className="text-gradient">Together.</span>
+            A residency for founders who{" "}
+            <span className="text-gradient">ship.</span>
           </h1>
 
           {/* Subheadline */}
           <p className="text-xl md:text-2xl text-muted-foreground mb-4 animate-fade-up stagger-2 max-w-2xl mx-auto">
-            Gurgaon's premier co-living space for startup founders, developers, and builders.
+            India's startup residency for founders, developers, and builders. A curated cohort of 8. Stay, build, ship.
           </p>
 
           {/* Value Hook */}

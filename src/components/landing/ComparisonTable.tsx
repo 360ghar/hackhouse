@@ -19,7 +19,7 @@ const ComparisonTable = () => {
             HackHouse vs <span className="text-gradient">the Rest</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Not just a PG, not just a co-working space. A builder-first co-living experience.
+            Not a PG, not a co-working desk. A startup residency for builders.
           </p>
         </AnimatedSection>
 

@@ -33,7 +33,7 @@ const ValueProposition = () => {
             Why <span className="text-gradient">HackHouse?</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            More than just a co-living space—it's an accelerator for your ambitions.
+            More than a residency — an accelerator for your ambitions.
           </p>
         </AnimatedSection>
 
