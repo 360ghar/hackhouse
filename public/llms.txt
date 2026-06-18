@@ -1,0 +1,36 @@
+# HackHouse Gurgaon
+
+> HackHouse is a curated co-living space for founders, developers, and builders in Sector 50, Gurgaon, India. Each cohort is limited to 8 curated residents. The fee is Rs 35,000/month all-inclusive and covers a fully-furnished double-sharing room, 3 daily meals, 1 Gbps internet with 24x7 power backup, shared access to 15+ premium AI tools (worth Rs 20,000+/month), weekly mentorship, and a builder community. The minimum stay is 1 month.
+
+HackHouse is not a regular PG. It is a builder-first co-living space where every resident is actively building a startup, side project, or open-source tool. Residents get shared access to Claude Max, ChatGPT Business, Cursor Pro, Midjourney, and 15+ premium tools, plus weekly mentorship and demo day prep.
+
+## Key facts
+
+- Location: Sector 50, Gurgaon, Haryana, India (Delhi NCR)
+- Price: Rs 35,000/month, all-inclusive (co-living membership)
+- Co-working passes: Rs 500/day, Rs 5,000/month
+- Cohort size: 8 curated builders
+- Minimum stay: 1 month (most stay 2-6 months)
+- Internet: 1 Gbps fiber with 24x7 backup
+- Meals: 3 daily (breakfast, lunch, dinner)
+- AI tools: 15+ premium tools shared (Claude Max, Cursor Pro, ChatGPT Business, Midjourney, etc.)
+- Contact: +91-9999900876, hello@hackhouse.in
+- Application: 4 steps - apply online, 15-min chat, selected within 48 hours, move in
+- Refund: pro-rated refund for unused days within first week
+
+## Important pages
+
+- [Home](https://hackhouse.in/)
+- [Co-Living in Gurgaon: Costs, Locations & Best Spaces](https://hackhouse.in/co-living-gurgaon)
+- [What Is a Hacker House? Hacker Houses in India](https://hackhouse.in/hacker-house-india)
+- [Pricing & Full Value Breakdown](https://hackhouse.in/pricing)
+- [Blog - Guides for Founders & Developers](https://hackhouse.in/blog)
+- [What Is a Hacker House? Complete Guide](https://hackhouse.in/blog/what-is-a-hacker-house)
+- [Co-Living in Gurgaon: Costs, Locations](https://hackhouse.in/blog/co-living-gurgaon-costs-locations)
+- [Best AI Tools for Startup Founders 2026](https://hackhouse.in/blog/best-ai-tools-for-startup-founders-2026)
+- [How to Choose a Co-Living Space as a Developer in India](https://hackhouse.in/blog/how-to-choose-co-living-space-developer-india)
+
+## Optional
+
+- [Full content corpus for AI ingestion](https://hackhouse.in/llms-full.txt)
+- [Sitemap](https://hackhouse.in/sitemap.xml)

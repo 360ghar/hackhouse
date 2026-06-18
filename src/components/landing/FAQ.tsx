@@ -24,7 +24,7 @@ const FAQ = () => {
         "The minimum stay is 1 month, and most residents stay for 2-6 months. We're flexible with extensions based on your progress and fit with the community. Some of our best success stories came from longer stays.",
     },
     {
-      question: "What's included in the ₹30,000/month?",
+      question: "What's included in the ₹35,000/month?",
       answer:
         "Everything you need: fully-furnished double-sharing room, 3 meals daily, 1 Gbps internet with 24×7 backup, shared access to premium AI tools (Claude Max, Cursor, ChatGPT, etc.), weekly events, mentorship sessions, and a curated community of 8 builders.",
     },
@@ -49,19 +49,19 @@ const FAQ = () => {
         "Yes, we're selective to ensure a high-quality community. We look for builders who are actively working on projects, have clear goals, and will contribute positively to the house culture. It's not just about credentials—it's about energy and intent.",
     },
     {
-      question: "What is the best co-living space for startup founders in Gurgaon?",
+      question: "How is HackHouse different from a regular PG?",
       answer:
-        "HackHouse Gurgaon is a curated co-living space designed specifically for startup founders, developers, and builders. Unlike regular co-living spaces, HackHouse offers premium AI tools access, mentorship from experienced founders, weekend launch sprints, and a handpicked community of 8 builders per cohort — all for ₹30,000/month all-inclusive.",
+        "A PG just gives you a bed. HackHouse gives you a curated community of builders, premium AI tools worth ₹20,000+/month, weekly mentorship, and demo day prep. It's built for people shipping things, not just renting a room.",
     },
     {
-      question: "Is there a hacker house or co-living space near Delhi NCR for tech professionals?",
+      question: "Is HackHouse accessible from Delhi?",
       answer:
-        "Yes, HackHouse Gurgaon is the premier hacker house in the Delhi NCR region. Located in the heart of Gurgaon with excellent metro connectivity, it offers fully-furnished stay, 3 meals daily, 1 Gbps internet, premium AI tools, and a curated community of builders — all for ₹30,000/month.",
+        "Yes! We're in Gurgaon with excellent metro connectivity to Delhi NCR. Most residents commute easily between HackHouse and Delhi for meetings, events, or networking.",
     },
     {
-      question: "How is HackHouse different from a regular PG or co-living in Gurgaon?",
+      question: "Do you offer refunds if it's not a good fit?",
       answer:
-        "HackHouse is not a regular PG. It's a curated accelerator-style co-living space where every resident is actively building something — a startup, side project, or open-source tool. You get access to ₹20,000+/month worth of premium AI tools (Claude Max, Cursor Pro, ChatGPT Business), weekly mentorship sessions, demo day prep, investor networking, and a community that pushes you to ship faster. Regular PGs don't offer any of this.",
+        "Yes. If HackHouse isn't working out, we offer a pro-rated refund for any unused days within your first week. After the first week, refunds follow your agreement terms. Just talk to us and we'll sort it out fairly.",
     },
   ];
 

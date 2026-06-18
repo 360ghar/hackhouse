@@ -71,7 +71,7 @@ const Amenities = () => {
               <div className="text-center md:text-right">
                 <p className="text-muted-foreground mb-2">HackHouse Price</p>
                 <p className="font-heading text-5xl md:text-6xl font-bold text-gradient">
-                  ₹30,000
+                  ₹35,000
                 </p>
                 <p className="text-sm text-accent font-medium">per month, all-inclusive</p>
               </div>

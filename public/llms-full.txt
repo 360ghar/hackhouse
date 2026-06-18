@@ -1,0 +1,187 @@
+# HackHouse Gurgaon - Full Content Corpus for AI Ingestion
+
+> This file is a complete, machine-readable corpus of HackHouse Gurgaon's website content. It is intended for large language models and AI answer engines to ingest verbatim. Source: https://hackhouse.in
+
+---
+
+## Overview
+
+HackHouse is a curated co-living space for founders, developers, and builders in Sector 50, Gurgaon, India (Delhi NCR). Each cohort is limited to 8 curated residents. The fee is Rs 35,000 per month, all-inclusive, and covers a fully-furnished double-sharing room, 3 daily meals, 1 Gbps internet with 24x7 power backup, shared access to 15+ premium AI tools (worth Rs 20,000+ per month), weekly mentorship, and a builder community. The minimum stay is 1 month, and most residents stay 2 to 6 months.
+
+HackHouse is not a regular PG. It is a builder-first co-living space where every resident is actively building a startup, side project, or open-source tool.
+
+---
+
+## Key facts
+
+- Location: Sector 50, Gurgaon, Haryana, India (Delhi NCR)
+- Price: Rs 35,000/month, all-inclusive (co-living membership)
+- Co-working passes: Rs 500/day, Rs 5,000/month
+- Cohort size: 8 curated builders
+- Minimum stay: 1 month (most stay 2-6 months)
+- Internet: 1 Gbps fiber with 24x7 backup
+- Meals: 3 daily (breakfast, lunch, dinner)
+- AI tools: 15+ premium tools shared (Claude Max, Cursor Pro, ChatGPT Business, Midjourney, etc.)
+- Contact: +91-9999900876, hello@hackhouse.in
+- Application: 4 steps - apply online, 15-min chat, selected within 48 hours, move in
+- Refund policy: pro-rated refund for unused days within first week
+
+---
+
+## Why HackHouse?
+
+1. Extreme Focus: No daily distractions. Ship faster than you ever have. The environment is optimized for deep work and rapid iteration.
+2. Smart Peers: Everyone around you is coding, building products, and starting companies. That energy is contagious and elevates your game.
+3. Serendipity by Design: Many startups begin with "We met in a hacker house and decided to build together." Your co-founder might be in the next room.
+
+---
+
+## What is included in Rs 35,000/month?
+
+- Fully-furnished double-sharing room with modern furniture and workspace (standalone value: Rs 15,000/month)
+- 3 healthy meals daily: breakfast, lunch, and dinner prepared fresh (standalone value: Rs 10,000-15,000/month)
+- 1 Gbps internet with 24x7 power backup (standalone value: Rs 4,000/month)
+- Curated tribe of 8 builders: handpicked founders, developers, and creators (priceless)
+- Weekend launch sprints: idea jams, mentorship sessions, and high-collaboration living (priceless)
+- Premium AI tools access: shared access to Claude Max, ChatGPT Business, Cursor Pro, Midjourney, and 15+ tools (worth Rs 20,000+/month)
+- Weekly community events and workshops
+- Shared access to meeting room
+- Mentorship from experienced founders
+- Demo day preparation support
+- Investor networking opportunities
+
+Total standalone value: Rs 50,000-60,000+/month. HackHouse price: Rs 35,000/month, all-inclusive.
+
+---
+
+## Premium AI tools included
+
+### AI Assistants
+- Claude Max: advanced AI reasoning
+- ChatGPT Business: OpenAI's flagship
+- Google AI Ultra: Gemini access
+- Perplexity AI Pro: research AI
+
+### Development
+- Cursor Pro: AI-powered IDE
+- GitHub Copilot: code completion
+
+### Design and Creative
+- Midjourney: image generation
+- Adobe Creative Cloud: full suite
+- Canva Pro: quick designs
+
+### Video and Audio
+- ElevenLabs: voice synthesis
+- HeyGen: AI video creation
+
+Access is limited based on fair usage policy. All tools are shared among residents.
+
+---
+
+## HackHouse vs Regular PG vs Co-working
+
+| Feature | Regular PG | Co-working | HackHouse |
+|---|---|---|---|
+| Furnished room + workspace | Basic | No | Yes |
+| 3 daily meals | Sometimes | No | Yes |
+| 1 Gbps internet + backup | Rarely | Yes | Yes |
+| Premium AI tools (Rs 20k+ value) | No | No | Yes |
+| Curated community of builders | No | Partial | Yes |
+| Weekly mentorship | No | No | Yes |
+| All-inclusive price | Rs 12-18k | Rs 5-15k | Rs 35,000 |
+
+---
+
+## Pricing
+
+- Co-Living Membership: Rs 35,000/month (all-inclusive)
+- Daily Co-Working Pass: Rs 500/day
+- Monthly Co-Working Pass: Rs 5,000/month
+
+Refund policy: If HackHouse isn't working out, we offer a pro-rated refund for any unused days within your first week. After the first week, refunds follow your agreement terms.
+
+---
+
+## How to join HackHouse
+
+1. Apply Online: Fill out a quick form about yourself and what you're building.
+2. Quick Chat: 15-min call to understand your goals and if we're a good fit.
+3. Get Selected: We'll notify you within 48 hours of your application.
+4. Move In: Pack your bags and join the tribe of 8 curated builders.
+
+---
+
+## Frequently Asked Questions
+
+### What is a hacker house?
+A hacker house is a shared living space where builders, developers, founders, designers, and creators live together for an intense period to build projects, collaborate deeply, and accelerate their startups. Think of it as an ashram for startup energy.
+
+### Who is HackHouse for?
+HackHouse is for early-stage founders, developers, designers, and tech professionals who are actively building something, whether it's a startup, side project, or open-source tool. We look for people who are ambitious, collaborative, and want to be part of a high-energy community.
+
+### How long can I stay at HackHouse?
+The minimum stay is 1 month, and most residents stay for 2-6 months. We're flexible with extensions based on your progress and fit with the community. Some of our best success stories came from longer stays.
+
+### What's included in the Rs 35,000/month at HackHouse?
+Everything you need: fully-furnished double-sharing room, 3 meals daily, 1 Gbps internet with 24x7 backup, shared access to premium AI tools (Claude Max, Cursor, ChatGPT, etc.), weekly events, mentorship sessions, and a curated community of 8 builders.
+
+### How do I get selected for HackHouse?
+Apply through our form, and we'll schedule a 15-minute chat to understand your goals and what you're building. We select based on ambition, what you're working on, and potential fit with the current cohort. We notify within 48 hours.
+
+### Can I try HackHouse before committing?
+Yes! We offer daily passes (Rs 500) and monthly co-working passes (Rs 5,000) so you can experience the space and community before deciding to move in.
+
+### Where is HackHouse located in Gurgaon?
+We're located in Sector 50, Gurgaon, close to major tech hubs and well-connected by metro to Delhi NCR. The exact address is shared after your application is approved.
+
+### Is there a selection process for HackHouse?
+Yes, we're selective to ensure a high-quality community. We look for builders who are actively working on projects, have clear goals, and will contribute positively to the house culture. It's not just about credentials, it's about energy and intent.
+
+### How is HackHouse different from a regular PG?
+A PG just gives you a bed. HackHouse gives you a curated community of builders, premium AI tools worth Rs 20,000+/month, weekly mentorship, and demo day prep. It's built for people shipping things, not just renting a room.
+
+### Is HackHouse accessible from Delhi?
+Yes! We're in Gurgaon with excellent metro connectivity to Delhi NCR via the Yellow Line and Rapid Metro. Most residents commute easily between HackHouse and Delhi for meetings, events, or networking.
+
+### Do you offer refunds if it's not a good fit?
+Yes. If HackHouse isn't working out, we offer a pro-rated refund for any unused days within your first week. After the first week, refunds follow your agreement terms. Just talk to us and we'll sort it out fairly.
+
+---
+
+## Co-Living in Gurgaon (detailed guide)
+
+Co-living in Gurgaon costs between Rs 12,000 and Rs 35,000 per month depending on room type, location, and amenities. A basic double-sharing PG costs Rs 12,000 to Rs 18,000, a single room costs Rs 18,000 to Rs 28,000, and premium co-living with meals, internet, and community costs Rs 25,000 to Rs 35,000.
+
+Best locations for co-living in Gurgaon: Sector 50, Sector 56, Golf Course Road, and Cyber City-adjacent areas. These neighborhoods offer strong metro connectivity, proximity to startup offices, and a density of cafes and co-working spaces. Sector 50 is centrally located with easy access to the Rapid Metro and HUDA City Centre metro station.
+
+Gurgaon is connected to Delhi via the Delhi Metro Yellow Line and the Rapid Metro. HUDA City Centre metro station connects directly to Rajiv Chowk in central Delhi in roughly 45 minutes. The Dwarka Expressway and NH-48 also link Gurgaon to Delhi by road.
+
+---
+
+## What is a hacker house? (detailed guide)
+
+A hacker house is a shared living space where builders, developers, founders, designers, and creators live together for an intense period to build projects, collaborate deeply, and accelerate their startups. The concept traces back to early startup hubs in Silicon Valley, where founders would rent houses together to cut costs and build around the clock. Y Combinator's early cohorts popularized the idea.
+
+In India, hacker houses have emerged as startup ecosystems in Delhi NCR, Bangalore, and Pune matured. They sit between a PG (which offers only a room) and an accelerator (which offers capital and programming) by offering community, infrastructure, and focus without equity.
+
+Hacker houses in India typically charge between Rs 25,000 and Rs 40,000 per month, all-inclusive of stay, meals, internet, and amenities. HackHouse Gurgaon charges Rs 35,000 per month and includes shared access to premium AI tools worth Rs 20,000+ per month.
+
+---
+
+## Contact
+
+- Phone: +91-9999900876
+- Email: hello@hackhouse.in
+- Location: Sector 50, Gurgaon, Haryana, India
+- Website: https://hackhouse.in
+
+---
+
+## Important pages
+
+- Home: https://hackhouse.in/
+- Co-Living in Gurgaon: https://hackhouse.in/co-living-gurgaon
+- What Is a Hacker House: https://hackhouse.in/hacker-house-india
+- Pricing: https://hackhouse.in/pricing
+- Blog: https://hackhouse.in/blog

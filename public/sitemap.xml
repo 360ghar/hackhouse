@@ -4,19 +4,63 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://hackhouse.in/</loc>
-    <lastmod>2026-05-10</lastmod>
+    <lastmod>2026-06-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://hackhouse.in/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hackhouse.in/" />
     <image:image>
       <image:loc>https://hackhouse.in/og-image.png</image:loc>
       <image:title>HackHouse Gurgaon - Co-Living Space for Founders &amp; Builders</image:title>
-      <image:caption>HackHouse Gurgaon co-living space interior with founders working together</image:caption>
+      <image:caption>HackHouse Gurgaon co-living space for founders and builders</image:caption>
     </image:image>
   </url>
   <url>
+    <loc>https://hackhouse.in/co-living-gurgaon</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://hackhouse.in/hacker-house-india</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://hackhouse.in/pricing</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://hackhouse.in/blog</loc>
-    <lastmod>2026-05-10</lastmod>
-    <changefreq>daily</changefreq>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hackhouse.in/blog/what-is-a-hacker-house</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hackhouse.in/blog/co-living-gurgaon-costs-locations</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hackhouse.in/blog/best-ai-tools-for-startup-founders-2026</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hackhouse.in/blog/how-to-choose-co-living-space-developer-india</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>

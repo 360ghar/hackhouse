@@ -60,5 +60,9 @@ User-agent: *
 Allow: /
 Crawl-delay: 1
 
+# AI / LLM content discovery
+# See https://llmstxt.org
+# llms.txt and llms-full.txt are served at the site root.
+
 # Sitemaps
 Sitemap: https://hackhouse.in/sitemap.xml

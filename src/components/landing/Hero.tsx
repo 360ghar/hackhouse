@@ -27,7 +27,7 @@ const Hero = ({ onApplyClick }: HeroProps) => {
           </div>
 
           {/* Main Headline */}
-          <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold mb-6 animate-fade-up stagger-1">
+          <h1 id="hero-headline" className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold mb-6 animate-fade-up stagger-1">
             Build Faster.{" "}
             <span className="text-gradient">Together.</span>
           </h1>
@@ -43,7 +43,7 @@ const Hero = ({ onApplyClick }: HeroProps) => {
               Get resources worth{" "}
               <span className="text-accent font-bold">₹60,000+/month</span>{" "}
               for just{" "}
-              <span className="text-primary font-bold text-2xl md:text-3xl">₹30,000</span>
+              <span className="text-primary font-bold text-2xl md:text-3xl">₹35,000</span>
             </p>
           </div>
 
@@ -93,11 +93,16 @@ const Hero = ({ onApplyClick }: HeroProps) => {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+      <button
+        type="button"
+        aria-label="Scroll to content"
+        onClick={() => document.getElementById('value')?.scrollIntoView({ behavior: 'smooth' })}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer"
+      >
         <div className="w-6 h-10 rounded-full border-2 border-muted-foreground/50 flex items-start justify-center p-2">
           <div className="w-1 h-2 bg-muted-foreground/50 rounded-full" />
         </div>
-      </div>
+      </button>
     </section>
   );
 };

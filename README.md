@@ -5,7 +5,7 @@ A modern landing page for HackHouse Gurgaon - a curated co-living space for foun
 ## About
 
 HackHouse Gurgaon offers a fully-furnished living space designed for builders, providing:
-- Resources worth ₹60,000+/month for just ₹30,000
+- Resources worth ₹60,000+/month for just ₹35,000
 - Accommodation for 8 curated founders per cohort
 - 3 meals daily
 - Premium AI tools and amenities

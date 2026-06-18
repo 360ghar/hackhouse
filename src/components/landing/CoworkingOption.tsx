@@ -2,7 +2,11 @@ import { Coffee, Calendar, Check, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AnimatedSection from "./AnimatedSection";
 
-const CoworkingOption = () => {
+interface CoworkingOptionProps {
+  onApplyClick?: () => void;
+}
+
+const CoworkingOption = ({ onApplyClick }: CoworkingOptionProps) => {
   const plans = [
     {
       icon: Coffee,
@@ -60,12 +64,16 @@ const CoworkingOption = () => {
               delay={index * 100}
             >
               <div
-                className={`glass rounded-2xl p-8 relative h-full ${
-                  plan.popular ? "border-primary/50" : ""
+                className={`glass rounded-2xl p-8 relative h-full transition-all duration-300 hover:-translate-y-2 ${
+                  plan.popular ? "border-primary/50 hover:border-primary" : "hover:border-primary/50"
                 }`}
               >
                 {plan.popular && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary px-4 py-1 rounded-full">
+                  <div
+                    className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary px-4 py-1 rounded-full"
+                    role="status"
+                    aria-label="Best value plan"
+                  >
                     <span className="text-xs font-bold text-primary-foreground">BEST VALUE</span>
                   </div>
                 )}
@@ -94,14 +102,18 @@ const CoworkingOption = () => {
                 </ul>
 
                 <Button
+                  onClick={() => onApplyClick?.()}
                   className={`w-full font-heading ${
                     plan.popular
                       ? "bg-primary hover:bg-primary/90"
                       : "bg-secondary hover:bg-secondary/80"
                   }`}
                 >
-                  Get {plan.title}
+                  Apply for {plan.title}
                 </Button>
+                <p className="text-xs text-muted-foreground text-center mt-3">
+                  We'll contact you to confirm your pass
+                </p>
               </div>
             </AnimatedSection>
           ))}

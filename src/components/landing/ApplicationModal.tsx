@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -13,8 +13,29 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { useToast } from "@/hooks/use-toast";
+import { toast } from "sonner";
+import { cn } from "@/lib/utils";
 import { Loader2, Send, CheckCircle, Phone } from "lucide-react";
+
+// LinkedIn / URL field: auto-prepend https:// if the user omitted a protocol.
+// This lets users type "linkedin.com/in/johndoe" without being rejected.
+const linkedinField = z
+  .string()
+  .trim()
+  .transform((val) => {
+    if (val && !/^https?:\/\//i.test(val)) {
+      return `https://${val}`;
+    }
+    return val;
+  })
+  .pipe(
+    z
+      .string()
+      .url("Please enter a valid URL")
+      .max(255, "URL must be less than 255 characters"),
+  )
+  .optional()
+  .or(z.literal(""));
 
 const applicationSchema = z.object({
   name: z
@@ -32,13 +53,7 @@ const applicationSchema = z.object({
     .trim()
     .min(10, "Please describe what you're building (at least 10 characters)")
     .max(500, "Description must be less than 500 characters"),
-  linkedin: z
-    .string()
-    .trim()
-    .url("Please enter a valid URL")
-    .max(255, "URL must be less than 255 characters")
-    .optional()
-    .or(z.literal("")),
+  linkedin: linkedinField,
   reason: z
     .string()
     .trim()
@@ -53,15 +68,18 @@ interface ApplicationModalProps {
   onClose: () => void;
 }
 
+const BUILDING_MAX = 500;
+const REASON_MAX = 1000;
+
 const ApplicationModal = ({ isOpen, onClose }: ApplicationModalProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const { toast } = useToast();
 
   const {
     register,
     handleSubmit,
     reset,
+    watch,
     formState: { errors },
   } = useForm<ApplicationFormData>({
     resolver: zodResolver(applicationSchema),
@@ -74,28 +92,42 @@ const ApplicationModal = ({ isOpen, onClose }: ApplicationModalProps) => {
     },
   });
 
+  // Watched values for character counters.
+  const buildingValue = watch("building") ?? "";
+  const reasonValue = watch("reason") ?? "";
+
+  // Reset the form once the modal has finished closing so reopening always
+  // shows a fresh form (no success-state flicker). Running this in an effect
+  // tied to `isOpen` is more reliable than a setTimeout inside handleClose,
+  // which could race with a quick reopen.
+  useEffect(() => {
+    if (!isOpen) {
+      const t = setTimeout(() => {
+        reset();
+        setIsSubmitted(false);
+      }, 300);
+      return () => clearTimeout(t);
+    }
+  }, [isOpen, reset]);
+
   const onSubmit = async (data: ApplicationFormData) => {
     setIsSubmitting(true);
-    
-    // Simulate API call
+
+    // Simulate API call (no backend on this static site).
+    // data is logged for demo; no backend in this static site — do NOT send anywhere.
     await new Promise((resolve) => setTimeout(resolve, 1500));
-    
+    void data;
+
     setIsSubmitting(false);
     setIsSubmitted(true);
-    
-    toast({
-      title: "Application Submitted! 🎉",
+
+    toast.success("Application Submitted! 🎉", {
       description: "We'll get back to you within 48 hours.",
     });
   };
 
   const handleClose = () => {
     onClose();
-    // Reset form after modal closes
-    setTimeout(() => {
-      reset();
-      setIsSubmitted(false);
-    }, 300);
   };
 
   return (
@@ -122,12 +154,15 @@ const ApplicationModal = ({ isOpen, onClose }: ApplicationModalProps) => {
                 <Label htmlFor="name">Full Name *</Label>
                 <Input
                   id="name"
+                  autoComplete="name"
                   placeholder="John Doe"
                   className="bg-secondary border-border"
+                  aria-describedby={errors.name ? "name-error" : undefined}
+                  aria-invalid={!!errors.name}
                   {...register("name")}
                 />
                 {errors.name && (
-                  <p className="text-sm text-destructive">{errors.name.message}</p>
+                  <p id="name-error" className="text-sm text-destructive">{errors.name.message}</p>
                 )}
               </div>
 
@@ -136,12 +171,15 @@ const ApplicationModal = ({ isOpen, onClose }: ApplicationModalProps) => {
                 <Input
                   id="email"
                   type="email"
+                  autoComplete="email"
                   placeholder="john@example.com"
                   className="bg-secondary border-border"
+                  aria-describedby={errors.email ? "email-error" : undefined}
+                  aria-invalid={!!errors.email}
                   {...register("email")}
                 />
                 {errors.email && (
-                  <p className="text-sm text-destructive">{errors.email.message}</p>
+                  <p id="email-error" className="text-sm text-destructive">{errors.email.message}</p>
                 )}
               </div>
 
@@ -151,10 +189,23 @@ const ApplicationModal = ({ isOpen, onClose }: ApplicationModalProps) => {
                   id="building"
                   placeholder="Tell us about your startup, side project, or what you're working on..."
                   className="bg-secondary border-border min-h-[80px] resize-none"
+                  maxLength={BUILDING_MAX}
+                  aria-describedby={errors.building ? "building-error" : undefined}
+                  aria-invalid={!!errors.building}
                   {...register("building")}
                 />
+                <div className="flex justify-end">
+                  <span
+                    className={cn(
+                      "text-xs text-muted-foreground",
+                      buildingValue.length >= BUILDING_MAX * 0.9 && "text-destructive",
+                    )}
+                  >
+                    {buildingValue.length}/{BUILDING_MAX}
+                  </span>
+                </div>
                 {errors.building && (
-                  <p className="text-sm text-destructive">{errors.building.message}</p>
+                  <p id="building-error" className="text-sm text-destructive">{errors.building.message}</p>
                 )}
               </div>
 
@@ -162,12 +213,15 @@ const ApplicationModal = ({ isOpen, onClose }: ApplicationModalProps) => {
                 <Label htmlFor="linkedin">LinkedIn / Twitter / Portfolio URL</Label>
                 <Input
                   id="linkedin"
+                  autoComplete="url"
                   placeholder="https://linkedin.com/in/johndoe"
                   className="bg-secondary border-border"
+                  aria-describedby={errors.linkedin ? "linkedin-error" : undefined}
+                  aria-invalid={!!errors.linkedin}
                   {...register("linkedin")}
                 />
                 {errors.linkedin && (
-                  <p className="text-sm text-destructive">{errors.linkedin.message}</p>
+                  <p id="linkedin-error" className="text-sm text-destructive">{errors.linkedin.message}</p>
                 )}
               </div>
 
@@ -177,10 +231,23 @@ const ApplicationModal = ({ isOpen, onClose }: ApplicationModalProps) => {
                   id="reason"
                   placeholder="What are you hoping to achieve? How would HackHouse help you?"
                   className="bg-secondary border-border min-h-[100px] resize-none"
+                  maxLength={REASON_MAX}
+                  aria-describedby={errors.reason ? "reason-error" : undefined}
+                  aria-invalid={!!errors.reason}
                   {...register("reason")}
                 />
+                <div className="flex justify-end">
+                  <span
+                    className={cn(
+                      "text-xs text-muted-foreground",
+                      reasonValue.length >= REASON_MAX * 0.9 && "text-destructive",
+                    )}
+                  >
+                    {reasonValue.length}/{REASON_MAX}
+                  </span>
+                </div>
                 {errors.reason && (
-                  <p className="text-sm text-destructive">{errors.reason.message}</p>
+                  <p id="reason-error" className="text-sm text-destructive">{errors.reason.message}</p>
                 )}
               </div>
 

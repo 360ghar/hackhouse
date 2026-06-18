@@ -1,15 +1,34 @@
 import { Mail, Phone, MapPin } from "lucide-react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isLanding = location.pathname === "/";
+
   const socialLinks = [
     { icon: Mail, href: "mailto:hello@hackhouse.in", label: "Email" },
   ];
 
   const footerLinks = [
     { label: "About", href: "#value" },
+    { label: "What's Included", href: "#amenities" },
+    { label: "Pricing", href: "/pricing" },
+    { label: "Co-Living Gurgaon", href: "/co-living-gurgaon" },
+    { label: "Hacker House India", href: "/hacker-house-india" },
     { label: "Blog", href: "/blog" },
     { label: "FAQ", href: "#faq" },
   ];
+
+  const handleHashClick = (e: React.MouseEvent, href: string) => {
+    if (isLanding) return; // let default anchor behavior work on landing page
+    e.preventDefault();
+    const sectionId = href.slice(1);
+    navigate("/");
+    setTimeout(() => {
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+    }, 100);
+  };
 
   return (
     <footer className="border-t border-border py-12" role="contentinfo">
@@ -40,15 +59,26 @@ const Footer = () => {
 
           {/* Links */}
           <nav className="flex flex-wrap justify-center gap-6" aria-label="Footer navigation">
-            {footerLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
+            {footerLinks.map((link) =>
+              link.href.startsWith("#") ? (
+                <a
+                  key={link.label}
+                  href={isLanding ? link.href : `/${link.href}`}
+                  onClick={(e) => handleHashClick(e, link.href)}
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.label}
+                  to={link.href}
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {link.label}
+                </Link>
+              )
+            )}
           </nav>
 
           {/* Social Links */}
